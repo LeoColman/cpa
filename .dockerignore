@@ -1,0 +1,9 @@
+.git
+.claude
+.playwright-mcp
+*.png
+.env
+.env.example
+deploy.sh
+docker-compose.yml
+CLAUDE.md

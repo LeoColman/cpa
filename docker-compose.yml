@@ -1,0 +1,25 @@
+# Stack do site estático do CPA.
+# Caddy reverse-proxy externo capta o serviço via labels.
+#
+# Usage:
+#   bash deploy.sh          # build + stack deploy
+#   bash deploy.sh rebuild  # só rebuilda a imagem + service update
+
+services:
+  site:
+    image: cpa-site:${IMAGE_TAG:-latest}
+    build:
+      context: .
+      dockerfile: Dockerfile
+    deploy:
+      replicas: 2
+      restart_policy: { condition: any, delay: 5s }
+      labels:
+        - "caddy=${CPA_HOST}"
+        - "caddy.reverse_proxy={{upstreams 80}}"
+    networks: [default, caddy]
+
+networks:
+  default:
+  caddy:
+    external: true
