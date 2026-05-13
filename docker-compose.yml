@@ -19,6 +19,32 @@ services:
         - "caddy.reverse_proxy={{upstreams 80}}"
     networks: [default, caddy]
 
+  # Recebe o webhook do GitHub e chama deploy.sh no host via docker.sock.
+  # Monta o repo no mesmo caminho do host para que docker stack deploy
+  # resolva bind mounts corretamente.
+  deploy-webhook:
+    image: node:22-alpine
+    entrypoint: ["node", "/root/manual-stacks/cpa/deploy-server.js"]
+    working_dir: /root/manual-stacks/cpa
+    environment:
+      - AGENT_TOKEN=${AGENT_TOKEN}
+      - GITHUB_WEBHOOK_SECRET=${GITHUB_WEBHOOK_SECRET}
+      - ALERT_WEBHOOK_URL=${ALERT_WEBHOOK_URL:-}
+      - PORT=4243
+      - HOME=/root
+    volumes:
+      - /root/manual-stacks/cpa:/root/manual-stacks/cpa
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /root/.ssh:/root/.ssh:ro
+    deploy:
+      replicas: 1
+      placement: { constraints: [node.role == manager] }
+      restart_policy: { condition: any, delay: 5s }
+      labels:
+        - "caddy=${DEPLOY_HOST}"
+        - "caddy.reverse_proxy={{upstreams 4243}}"
+    networks: [default, caddy]
+
 networks:
   default:
   caddy:
