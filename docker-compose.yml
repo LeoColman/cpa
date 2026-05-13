@@ -15,8 +15,8 @@ services:
       replicas: 2
       restart_policy: { condition: any, delay: 5s }
       labels:
-        - "caddy=${CPA_HOST}"
-        - "caddy.reverse_proxy={{upstreams 80}}"
+        caddy: "${CPA_HOST}"
+        caddy.reverse_proxy: "{{upstreams 80}}"
     networks: [default, caddy]
 
   # Recebe o webhook do GitHub e chama deploy.sh no host via docker.sock.
@@ -41,8 +41,8 @@ services:
       placement: { constraints: [node.role == manager] }
       restart_policy: { condition: any, delay: 5s }
       labels:
-        - "caddy=${DEPLOY_HOST}"
-        - "caddy.reverse_proxy={{upstreams 4243}}"
+        caddy: "${DEPLOY_HOST}"
+        caddy.reverse_proxy: "{{upstreams 4243}}"
     networks: [default, caddy]
 
 networks:
