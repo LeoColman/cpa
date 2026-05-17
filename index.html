@@ -594,6 +594,67 @@ img, svg { display: block; max-width: 100%; }
 }
 
 /* ============================================================
+   INGRESSO E DESVINCULAÇÃO
+   ============================================================ */
+
+.ingresso {
+  border-top: 2px solid var(--ink);
+  border-bottom: var(--rule-gold);
+  padding: clamp(40px, 6vw, 88px) 0;
+}
+.ingresso__head {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+  gap: clamp(20px, 4vw, 56px);
+  align-items: baseline;
+  margin-bottom: clamp(28px, 4vw, 56px);
+}
+.ingresso__title {
+  font-family: var(--display);
+  font-variation-settings: "opsz" 72, "SOFT" 50, "WONK" 0;
+  font-weight: 380;
+  font-size: clamp(34px, 4.5vw, 64px);
+  line-height: 0.98;
+  letter-spacing: -0.02em;
+}
+.ingresso__title em {
+  font-style: italic;
+  color: var(--oxblood);
+  font-variation-settings: "opsz" 72, "SOFT" 100, "WONK" 1;
+}
+.ingresso__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: clamp(28px, 4vw, 56px);
+}
+.ingresso__block {
+  border-top: 2px solid var(--ink);
+  padding-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.ingresso__name {
+  font-family: var(--display);
+  font-variation-settings: "opsz" 36, "SOFT" 70;
+  font-weight: 460;
+  font-size: clamp(20px, 1.7vw, 26px);
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+}
+.ingresso__block p {
+  font-size: clamp(15px, 1vw, 16.5px);
+  line-height: 1.65;
+  color: var(--ink-soft);
+}
+.ingresso__block p + p { margin-top: 0.9em; }
+
+@media (max-width: 860px) {
+  .ingresso__head { grid-template-columns: 1fr; gap: 20px; }
+  .ingresso__grid { grid-template-columns: 1fr; }
+}
+
+/* ============================================================
    SENSORIAL: accessibility manifesto
    ============================================================ */
 
@@ -1059,6 +1120,55 @@ footer.cry::before {
 </section>
 
 <!-- ============================================================
+     INGRESSO E DESVINCULAÇÃO
+     ============================================================ -->
+<section class="ingresso" id="ingresso">
+  <div class="shell">
+
+    <header class="ingresso__head">
+      <p class="eyebrow">03 · <b>Ingresso e desvinculação</b></p>
+      <h2 class="ingresso__title">
+        Como <em>entrar</em>, e como <em>sair</em>.
+      </h2>
+    </header>
+
+    <div class="ingresso__grid">
+
+      <article class="ingresso__block">
+        <h3 class="ingresso__name">Ingresso</h3>
+        <p>
+          Após o preenchimento do formulário e a confirmação dos pré-requisitos
+          (ser pessoa autista, maior de 18 anos e politicamente alinhada à
+          esquerda), o ingresso no CPA é aprovado.
+        </p>
+        <p>
+          O coletivo existe para organizar a luta política de pessoas autistas
+          de esquerda, na defesa de direitos, na promoção de representatividade
+          e na reivindicação por quem historicamente não tem espaço de voz.
+        </p>
+        <p>
+          São aceitas todas as vertentes da esquerda. Não são admitidas pessoas
+          com posicionamento político isento, neutro ou alinhado à direita: o
+          coletivo tem identidade política definida.
+        </p>
+      </article>
+
+      <article class="ingresso__block">
+        <h3 class="ingresso__name">Desvinculação</h3>
+        <p>
+          A desvinculação pode acontecer a qualquer momento. Basta sair dos
+          grupos e solicitar a qualquer pessoa da administração (Mero, Maju,
+          Rodrigo, Francielle ou Zuri) a exclusão dos seus dados pessoais, em
+          conformidade com a LGPD (Lei Geral de Proteção de Dados).
+        </p>
+      </article>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
      CONTATO
      ============================================================ -->
 <section class="contato" id="contato">
@@ -1066,7 +1176,7 @@ footer.cry::before {
     <div class="contato__grid">
 
       <div>
-        <p class="contato__eyebrow">03 · <b>Contato</b></p>
+        <p class="contato__eyebrow">04 · <b>Contato</b></p>
         <h2 class="contato__title">
           Fale com <em>o coletivo</em>.
         </h2>
@@ -1106,7 +1216,7 @@ footer.cry::before {
     <div class="sensorial__grid">
 
       <div>
-        <p class="eyebrow">04 · <b>Cuidado sensorial</b></p>
+        <p class="eyebrow">05 · <b>Cuidado sensorial</b></p>
         <h2 class="sensorial__title">
           Este site foi feito por autistas, <em>para autistas</em>.
         </h2>

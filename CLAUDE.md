@@ -120,8 +120,9 @@ Ordem das seções (numeradas em `§`):
 - `§ 01` Quem somos (standfirst)
 - `§ 02` Posição política (pull-quote)
 - Participar
-- `§ 03` Contato
-- `§ 04` Cuidado sensorial
+- `§ 03` Ingresso e desvinculação
+- `§ 04` Contato
+- `§ 05` Cuidado sensorial
 - Footer (brado de fechamento)
 
 Ao adicionar nova seção, renumerar os `§` em ordem.
