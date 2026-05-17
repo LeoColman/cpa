@@ -1,0 +1,1063 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<script>(function(){var s=localStorage.getItem('cpa-theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.dataset.theme=s;}());</script>
+<title>CPA · Identidade Visual</title>
+<meta name="description" content="Referência viva da identidade visual do site institucional do Coletivo Popular Autista.">
+<meta name="theme-color" content="#EFE9DC">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..900,0..100,0..1;1,9..144,300..900,0..100,0..1&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --paper:        #EFE9DC;
+  --paper-warm:   #E8E0CD;
+  --paper-deep:   #DDD3BC;
+  --ink:          #1A1814;
+  --ink-soft:     #3A332A;
+  --ink-mute:     #6A5F50;
+  --oxblood:      #8C2A2A;
+  --oxblood-deep: #6B1F1F;
+  --gold:         #A88341;
+  --gold-soft:    #C9A968;
+  --rule: 1px solid color-mix(in srgb, var(--ink) 18%, transparent);
+  --rule-gold: 1px solid color-mix(in srgb, var(--gold) 45%, transparent);
+  --display: "Fraunces", "Times New Roman", Georgia, serif;
+  --body:    "Instrument Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+  --mono:    "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --gutter: clamp(20px, 4vw, 56px);
+  --max:    1080px;
+}
+
+[data-theme="dark"] {
+  --paper:        #1E1A15;
+  --paper-warm:   #241F18;
+  --paper-deep:   #141009;
+  --ink:          #E6DFD0;
+  --ink-soft:     #B5ADA0;
+  --ink-mute:     #786E5E;
+  --oxblood:      #B03535;
+  --oxblood-deep: #8C2A2A;
+  --gold:         #C9A968;
+  --gold-soft:    #A88341;
+}
+[data-theme="dark"] body::before {
+  mix-blend-mode: screen;
+  opacity: 0.08;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: clamp(15px, 1.05vw, 17px);
+  line-height: 1.65;
+  font-feature-settings: "ss01", "kern", "liga";
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: "";
+  position: fixed; inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.35;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.15  0 0 0 0 0.13  0 0 0 0 0.10  0 0 0 0.18 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+}
+
+::selection { background: var(--oxblood); color: var(--paper); }
+
+a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px solid color-mix(in srgb, var(--ink) 35%, transparent);
+  transition: border-color 240ms ease, color 240ms ease;
+}
+a:hover { border-bottom-color: var(--oxblood); color: var(--oxblood); }
+
+*:focus-visible {
+  outline: 2px solid var(--oxblood);
+  outline-offset: 3px;
+  border-radius: 1px;
+}
+
+/* ===== layout ===== */
+
+.shell {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+  position: relative;
+  z-index: 2;
+}
+
+.masthead {
+  padding: clamp(32px, 5vw, 64px) 0 clamp(20px, 3vw, 40px);
+  border-bottom: var(--rule-gold);
+  margin-bottom: clamp(40px, 6vw, 80px);
+}
+.masthead__rule {
+  border-top: 2px solid var(--ink);
+  margin-bottom: 14px;
+}
+.masthead__row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: clamp(16px, 3vw, 40px);
+  flex-wrap: wrap;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-bottom: 0;
+}
+.brand__mark { width: 24px; height: 24px; flex-shrink: 0; }
+.brand__mark .star-outline { stroke: var(--gold); stroke-width: 0.6; fill: var(--oxblood); }
+.brand__word {
+  font-family: var(--display);
+  font-variation-settings: "opsz" 80, "SOFT" 60;
+  font-weight: 600;
+  font-size: clamp(15px, 1.3vw, 18px);
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+}
+.brand__word small {
+  display: block;
+  font-family: var(--mono);
+  font-size: 10.5px;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  margin-top: 2px;
+}
+
+.eyebrow {
+  font-family: var(--mono);
+  font-size: 11.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+}
+.eyebrow b { color: var(--oxblood); font-weight: 500; }
+
+.theme-toggle {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  background: none;
+  border: 1px solid color-mix(in srgb, var(--ink) 18%, transparent);
+  border-radius: 2px;
+  padding: 3px 7px;
+  cursor: pointer;
+  transition: color 220ms ease, border-color 220ms ease;
+}
+.theme-toggle:hover {
+  color: var(--ink);
+  border-color: color-mix(in srgb, var(--ink) 38%, transparent);
+}
+
+.doc {
+  max-width: 75ch;
+}
+
+.doc__hero {
+  margin-bottom: clamp(40px, 5vw, 64px);
+}
+.doc__title {
+  font-family: var(--display);
+  font-variation-settings: "opsz" 144, "SOFT" 80, "WONK" 1;
+  font-weight: 460;
+  font-size: clamp(40px, 6vw, 76px);
+  line-height: 0.95;
+  letter-spacing: -0.025em;
+  margin: 18px 0 24px;
+}
+.doc__title em {
+  font-style: italic;
+  color: var(--oxblood);
+  font-variation-settings: "opsz" 144, "SOFT" 100, "WONK" 1;
+  font-weight: 420;
+}
+.doc__lede {
+  font-family: var(--display);
+  font-variation-settings: "opsz" 24, "SOFT" 50;
+  font-size: clamp(17px, 1.4vw, 20px);
+  line-height: 1.55;
+  color: var(--ink-soft);
+  max-width: 50ch;
+}
+.doc__lede a { color: var(--oxblood); border-bottom-color: color-mix(in srgb, var(--oxblood) 35%, transparent); }
+
+/* ===== typography ===== */
+
+.doc h2 {
+  font-family: var(--display);
+  font-variation-settings: "opsz" 72, "SOFT" 60, "WONK" 0;
+  font-weight: 400;
+  font-size: clamp(28px, 3.2vw, 40px);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin: clamp(56px, 7vw, 96px) 0 18px;
+  padding-top: clamp(24px, 3vw, 40px);
+  border-top: 2px solid var(--ink);
+  position: relative;
+}
+.doc h2 .num {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  display: block;
+  margin-bottom: 14px;
+  font-weight: 500;
+  font-style: normal;
+}
+.doc h2 .num::before { content: "§ "; color: var(--oxblood); font-family: var(--display); font-style: italic; }
+
+.doc h3 {
+  font-family: var(--display);
+  font-variation-settings: "opsz" 36, "SOFT" 70, "WONK" 0;
+  font-weight: 460;
+  font-size: clamp(20px, 1.7vw, 26px);
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+  margin: clamp(32px, 3.5vw, 48px) 0 12px;
+  color: var(--ink);
+}
+.doc h3 em { font-style: italic; color: var(--oxblood); font-variation-settings: "opsz" 36, "SOFT" 100, "WONK" 1; }
+
+.doc h4 {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--oxblood);
+  font-weight: 500;
+  margin: clamp(24px, 3vw, 36px) 0 10px;
+}
+
+.doc p { margin: 0 0 1em; color: var(--ink-soft); }
+.doc p:last-child { margin-bottom: 0; }
+.doc p strong, .doc li strong { color: var(--ink); font-weight: 600; }
+.doc p em { font-style: italic; color: var(--oxblood); }
+
+.doc ul, .doc ol { margin: 0 0 1.2em 1.4em; color: var(--ink-soft); }
+.doc li { margin-bottom: 0.5em; line-height: 1.6; }
+.doc li::marker { color: var(--oxblood); }
+
+/* ===== code ===== */
+
+.doc code {
+  font-family: var(--mono);
+  font-size: 0.88em;
+  background: var(--paper-warm);
+  padding: 1px 6px;
+  border-radius: 2px;
+  color: var(--ink);
+  border: 1px solid color-mix(in srgb, var(--ink) 10%, transparent);
+}
+.doc pre {
+  font-family: var(--mono);
+  font-size: 13px;
+  line-height: 1.6;
+  background: var(--paper-warm);
+  border-left: 3px solid var(--oxblood);
+  padding: 16px 20px;
+  margin: 0 0 1.4em;
+  overflow-x: auto;
+  color: var(--ink);
+}
+.doc pre code {
+  background: none;
+  border: 0;
+  padding: 0;
+  font-size: inherit;
+  color: inherit;
+}
+
+/* ===== tables ===== */
+
+.doc__table-wrap { overflow-x: auto; margin: 0 0 1.6em; }
+.doc table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  border-top: 2px solid var(--ink);
+  border-bottom: 2px solid var(--ink);
+}
+.doc th, .doc td {
+  text-align: left;
+  padding: 10px 14px;
+  vertical-align: top;
+  border-bottom: 1px solid color-mix(in srgb, var(--ink) 12%, transparent);
+}
+.doc th {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--oxblood);
+  background: var(--paper-warm);
+  border-bottom-color: var(--ink);
+}
+.doc td code { font-size: 12.5px; }
+
+.swatch {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  border-radius: 2px;
+  vertical-align: middle;
+  margin-right: 8px;
+  border: 1px solid color-mix(in srgb, var(--ink) 25%, transparent);
+}
+
+/* ===== misc ===== */
+
+.callout {
+  border-left: 3px solid var(--gold);
+  background: var(--paper-warm);
+  padding: 14px 18px;
+  margin: 0 0 1.4em;
+  font-family: var(--mono);
+  font-size: 12.5px;
+  line-height: 1.7;
+  color: var(--ink-soft);
+}
+.callout b { color: var(--oxblood); font-weight: 500; }
+
+hr {
+  border: 0;
+  border-top: var(--rule-gold);
+  margin: clamp(40px, 5vw, 64px) 0;
+}
+
+.foot {
+  margin-top: clamp(80px, 10vw, 160px);
+  padding: clamp(28px, 4vw, 48px) 0;
+  border-top: 2px solid var(--ink);
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.foot b { color: var(--oxblood); font-weight: 500; }
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="shell">
+    <div class="masthead__rule"></div>
+    <div class="masthead__row">
+      <a class="brand" href="/" aria-label="CPA · início">
+        <svg class="brand__mark" viewBox="0 0 24 24" aria-hidden="true">
+          <path class="star-outline" d="M12 0.6 L14.9 8.5 L23.2 9.1 L16.7 14.7 L18.7 22.9 L12 18.2 L5.3 22.6 L7.2 14.5 L0.8 9.1 L9.1 8.5 Z" />
+        </svg>
+        <span class="brand__word">
+          Coletivo Popular Autista
+          <small>Documento interno · não indexado</small>
+        </span>
+      </a>
+      <button class="theme-toggle" id="theme-toggle" type="button" aria-live="polite"></button>
+    </div>
+  </div>
+</header>
+
+<main class="shell">
+<article class="doc">
+
+<header class="doc__hero">
+  <p class="eyebrow"><b>Referência</b> · Identidade Visual</p>
+  <h1 class="doc__title">CPA · Identidade <em>Visual</em>.</h1>
+  <p class="doc__lede">
+    Referência viva da identidade visual do site institucional do
+    Coletivo Popular Autista. Compilado a partir do <code>index.html</code>
+    (CSS embutido). Para regras editoriais e de conteúdo, ver
+    <code>CLAUDE.md</code>.
+  </p>
+</header>
+
+<p>
+  A identidade é uma só: <strong>boletim de esquerda, sensorialmente
+  acolhedor, tipograficamente generoso, anticapacitista</strong>. Toda
+  decisão visual responde a essas quatro coisas. Quando entrar em
+  conflito com qualquer uma, parar e perguntar antes de aplicar.
+</p>
+
+<h2><span class="num">01</span>Princípios</h2>
+
+<h3>Sensorialmente cuidado</h3>
+<ul>
+  <li>Sem branco puro (<code>#FFFFFF</code>). Sem preto puro (<code>#000000</code>). Sem saturação.</li>
+  <li>Contraste alto, mas sem agressão luminosa.</li>
+  <li>Sem flashes, sem oscilação de cor, sem GIFs autoexecutáveis.</li>
+  <li>Movimento curto, lento e desligável (sempre respeitar <code>prefers-reduced-motion: reduce</code>).</li>
+  <li>Nenhum som inesperado: zero <code>autoplay</code>.</li>
+</ul>
+
+<h3>Boletim de esquerda</h3>
+<ul>
+  <li>Estética de jornal/zine: réguas finas, eyebrow mono em caixa-alta, numeração de seção com <code>§</code>, drop cap no primeiro parágrafo de bloco longo.</li>
+  <li>Tipografia com personalidade (Fraunces variável), mas sem ornamento.</li>
+  <li>Vermelho oxblood e dourado antigo como sinalizadores políticos, nunca decorativos.</li>
+</ul>
+
+<h3>Identidade política, não diagnóstica</h3>
+<ul>
+  <li>Símbolo: <strong>estrela vermelha com contorno dourado</strong> (leftist e autista).</li>
+  <li>Proibido: quebra-cabeça (Autism Speaks) e azul como símbolo de autismo.</li>
+  <li>Pessoa autista é sujeito político, não paciente.</li>
+</ul>
+
+<h3>Sem rastros de IA</h3>
+<ul>
+  <li>Sem em-dash (U+2014) em nenhum lugar do projeto.</li>
+  <li>Sem ironia, hedging ou frases de encerramento de IA. Ver <code>CLAUDE.md</code> para a lista completa.</li>
+</ul>
+
+<h2><span class="num">02</span>Paleta</h2>
+
+<p>
+  Todas as cores vivem em <code>:root</code> como custom properties. Não
+  introduzir cores fora dessa lista sem revisão.
+</p>
+
+<h3>Tema claro (padrão)</h3>
+
+<div class="doc__table-wrap">
+<table>
+  <thead><tr><th>Token</th><th>HEX</th><th>Uso</th></tr></thead>
+  <tbody>
+    <tr><td><code>--paper</code></td><td><span class="swatch" style="background:#EFE9DC"></span><code>#EFE9DC</code></td><td>fundo principal (papel quente)</td></tr>
+    <tr><td><code>--paper-warm</code></td><td><span class="swatch" style="background:#E8E0CD"></span><code>#E8E0CD</code></td><td>fundo de bloco (sensorial, hero notice)</td></tr>
+    <tr><td><code>--paper-deep</code></td><td><span class="swatch" style="background:#DDD3BC"></span><code>#DDD3BC</code></td><td>fundo extra escuro (raro)</td></tr>
+    <tr><td><code>--ink</code></td><td><span class="swatch" style="background:#1A1814"></span><code>#1A1814</code></td><td>texto principal, fundos escuros (pullquote, contato, footer)</td></tr>
+    <tr><td><code>--ink-soft</code></td><td><span class="swatch" style="background:#3A332A"></span><code>#3A332A</code></td><td>corpo de texto secundário</td></tr>
+    <tr><td><code>--ink-mute</code></td><td><span class="swatch" style="background:#6A5F50"></span><code>#6A5F50</code></td><td>metadados, eyebrows neutros</td></tr>
+    <tr><td><code>--oxblood</code></td><td><span class="swatch" style="background:#8C2A2A"></span><code>#8C2A2A</code></td><td>acento político (italic, §, hover)</td></tr>
+    <tr><td><code>--oxblood-deep</code></td><td><span class="swatch" style="background:#6B1F1F"></span><code>#6B1F1F</code></td><td>reserva (variação)</td></tr>
+    <tr><td><code>--gold</code></td><td><span class="swatch" style="background:#A88341"></span><code>#A88341</code></td><td>réguas, contornos de detalhe</td></tr>
+    <tr><td><code>--gold-soft</code></td><td><span class="swatch" style="background:#C9A968"></span><code>#C9A968</code></td><td>acento sobre fundo escuro</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h3>Tema escuro (<code>[data-theme="dark"]</code>)</h3>
+
+<p>
+  Inverte papel e tinta sem trocar as funções dos tokens. Detecta
+  <code>prefers-color-scheme: dark</code> no primeiro load e persiste via
+  <code>localStorage.cpa-theme</code>.
+</p>
+
+<div class="doc__table-wrap">
+<table>
+  <thead><tr><th>Token</th><th>HEX</th></tr></thead>
+  <tbody>
+    <tr><td><code>--paper</code></td><td><span class="swatch" style="background:#1E1A15"></span><code>#1E1A15</code></td></tr>
+    <tr><td><code>--paper-warm</code></td><td><span class="swatch" style="background:#241F18"></span><code>#241F18</code></td></tr>
+    <tr><td><code>--paper-deep</code></td><td><span class="swatch" style="background:#141009"></span><code>#141009</code></td></tr>
+    <tr><td><code>--ink</code></td><td><span class="swatch" style="background:#E6DFD0"></span><code>#E6DFD0</code></td></tr>
+    <tr><td><code>--ink-soft</code></td><td><span class="swatch" style="background:#B5ADA0"></span><code>#B5ADA0</code></td></tr>
+    <tr><td><code>--ink-mute</code></td><td><span class="swatch" style="background:#786E5E"></span><code>#786E5E</code></td></tr>
+    <tr><td><code>--oxblood</code></td><td><span class="swatch" style="background:#B03535"></span><code>#B03535</code></td></tr>
+    <tr><td><code>--oxblood-deep</code></td><td><span class="swatch" style="background:#8C2A2A"></span><code>#8C2A2A</code></td></tr>
+    <tr><td><code>--gold</code></td><td><span class="swatch" style="background:#C9A968"></span><code>#C9A968</code></td></tr>
+    <tr><td><code>--gold-soft</code></td><td><span class="swatch" style="background:#A88341"></span><code>#A88341</code></td></tr>
+  </tbody>
+</table>
+</div>
+
+<h3>Réguas e divisores</h3>
+
+<div class="doc__table-wrap">
+<table>
+  <thead><tr><th>Token</th><th>Definição</th></tr></thead>
+  <tbody>
+    <tr><td><code>--rule</code></td><td><code>1px solid color-mix(in srgb, var(--ink) 18%, transparent)</code></td></tr>
+    <tr><td><code>--rule-gold</code></td><td><code>1px solid color-mix(in srgb, var(--gold) 45%, transparent)</code></td></tr>
+  </tbody>
+</table>
+</div>
+
+<p>
+  Padrão de borda de seção: <code>border-top: 2px solid var(--ink)</code>.
+  Quando a seção termina com pausa decorativa:
+  <code>border-bottom: var(--rule-gold)</code>.
+</p>
+
+<h3>Grão de papel</h3>
+<p>
+  <code>body::before</code> aplica ruído SVG fractal (240×240) com
+  <code>mix-blend-mode: multiply</code> e <code>opacity: 0.35</code> no
+  tema claro; <code>screen</code> + <code>0.08</code> no escuro.
+  Estático, sem animação, <code>pointer-events: none</code>. Não
+  remover, é parte da textura.
+</p>
+
+<h2><span class="num">03</span>Tipografia</h2>
+
+<h3>Famílias</h3>
+
+<div class="doc__table-wrap">
+<table>
+  <thead><tr><th>Token</th><th>Família</th><th>Função</th></tr></thead>
+  <tbody>
+    <tr><td><code>--display</code></td><td>Fraunces (variável: opsz, wght, SOFT, WONK)</td><td>títulos, citações, ênfases</td></tr>
+    <tr><td><code>--body</code></td><td>Instrument Sans</td><td>texto corrido</td></tr>
+    <tr><td><code>--mono</code></td><td>JetBrains Mono</td><td>eyebrows, créditos, metadados</td></tr>
+  </tbody>
+</table>
+</div>
+
+<p>
+  Fontes via Google Fonts. <strong>Fraunces é variável</strong>: usar
+  <code>font-variation-settings</code> para controle fino, não pesos
+  discretos.
+</p>
+
+<h3>Eixos variáveis da Fraunces (convenção)</h3>
+
+<div class="doc__table-wrap">
+<table>
+  <thead><tr><th>Contexto</th><th>opsz</th><th>SOFT</th><th>WONK</th><th>wght</th></tr></thead>
+  <tbody>
+    <tr><td>Display gigante (hero, footer)</td><td>144</td><td>60-100</td><td>1</td><td>380-460</td></tr>
+    <tr><td>Display grande (seção, contato)</td><td>72-96</td><td>50-80</td><td>0-1</td><td>360-380</td></tr>
+    <tr><td>Display médio (nome de card)</td><td>36</td><td>70</td><td>0</td><td>460</td></tr>
+    <tr><td>Lede e textos display em corpo</td><td>24</td><td>50-60</td><td>0</td><td>400</td></tr>
+    <tr><td>Ênfase em italic (acento)</td><td>manter</td><td>100</td><td>1</td><td>manter</td></tr>
+    <tr><td>Drop cap</td><td>144</td><td>100</td><td>1</td><td>500</td></tr>
+  </tbody>
+</table>
+</div>
+
+<div class="callout">
+  Regra: <b>italic = SOFT 100 + WONK 1 + cor oxblood</b>. É a marca de
+  ênfase do projeto. Sempre nessa combinação.
+</div>
+
+<h3>Escala tipográfica (clamp responsivo)</h3>
+
+<div class="doc__table-wrap">
+<table>
+  <thead><tr><th>Elemento</th><th>Tamanho</th></tr></thead>
+  <tbody>
+    <tr><td>Body</td><td><code>clamp(15px, 1.05vw, 17px)</code> / <code>1.55</code></td></tr>
+    <tr><td>Corpo standfirst/intro</td><td><code>clamp(15.5px, 1.05vw, 17px)</code> / <code>1.65</code></td></tr>
+    <tr><td>Hero headline</td><td><code>clamp(48px, 8.5vw, 132px)</code> / <code>0.92</code></td></tr>
+    <tr><td>Hero lede</td><td><code>clamp(18px, 1.5vw, 22px)</code> / <code>1.5</code></td></tr>
+    <tr><td>Hero quote</td><td><code>clamp(20px, 1.7vw, 26px)</code> / <code>1.3</code></td></tr>
+    <tr><td>Section title (padrão)</td><td><code>clamp(34px, 4.5vw, 64px)</code> / <code>0.98</code></td></tr>
+    <tr><td>Section title (participar)</td><td><code>clamp(36px, 5vw, 72px)</code> / <code>0.95</code></td></tr>
+    <tr><td>Section title (sensorial)</td><td><code>clamp(34px, 4vw, 56px)</code> / <code>1.0</code></td></tr>
+    <tr><td>Pullquote blockquote</td><td><code>clamp(40px, 6.5vw, 96px)</code> / <code>1.0</code></td></tr>
+    <tr><td>Footer cry shout</td><td><code>clamp(36px, 6.5vw, 96px)</code> / <code>0.96</code></td></tr>
+    <tr><td>Nome de card médio</td><td><code>clamp(20px, 1.7vw, 26px)</code> / <code>1.15</code></td></tr>
+    <tr><td>Nome de grupo (funciona)</td><td><code>clamp(19px, 1.5vw, 24px)</code> / <code>1.15</code></td></tr>
+    <tr><td>Numeral de regra/via</td><td><code>clamp(32-40px, 3.2-4.5vw, 44-56px)</code></td></tr>
+    <tr><td>Eyebrow</td><td><code>12px</code> (mono, <code>letter-spacing: 0.16em</code>)</td></tr>
+    <tr><td>Metadados/citação</td><td><code>11-11.5px</code> (mono)</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h4>Regras de uso</h4>
+<ul>
+  <li>Texto corrido nunca em <code>px</code> rígido. Sempre <code>clamp()</code> ou <code>rem</code>.</li>
+  <li>Linha curta: máximo <code>~70ch</code> em parágrafos longos.</li>
+  <li>Entrelinha mínima <code>1.5</code> em corpo. <code>1.6-1.7</code> em descrições compactas.</li>
+  <li>Hierarquia clara: display gigante → display médio → mono → body.</li>
+</ul>
+
+<h3>Letter-spacing</h3>
+<ul>
+  <li><strong>Display</strong>: negativo (<code>-0.015em</code> a <code>-0.03em</code>). Fraunces respira sozinha.</li>
+  <li><strong>Mono eyebrow/nav</strong>: <code>0.06em</code> a <code>0.16em</code>. Caixa-alta precisa de ar.</li>
+</ul>
+
+<h2><span class="num">04</span>Layout</h2>
+
+<h3>Container</h3>
+<pre><code>.shell {
+  max-width: var(--max);   /* 1340px */
+  margin: 0 auto;
+  padding: 0 var(--gutter); /* clamp(20px, 4vw, 56px) */
+  position: relative;
+  z-index: 2;
+}</code></pre>
+
+<p>
+  Toda seção envolve seu conteúdo em <code>.shell</code>. Nada vai
+  borda a borda do viewport (exceto fundos coloridos da própria
+  <code>&lt;section&gt;</code>).
+</p>
+
+<h3>Padding vertical de seção</h3>
+
+<div class="doc__table-wrap">
+<table>
+  <thead><tr><th>Densidade</th><th>Padding</th></tr></thead>
+  <tbody>
+    <tr><td>Compacto</td><td><code>clamp(40px, 6vw, 88px) 0</code></td></tr>
+    <tr><td>Padrão</td><td><code>clamp(56px, 8vw, 120px) 0</code></td></tr>
+    <tr><td>Pullquote (drama)</td><td><code>clamp(64px, 9vw, 128px) 0</code></td></tr>
+    <tr><td>Footer</td><td><code>clamp(56px, 7vw, 100px) 0 clamp(28px, 3vw, 48px)</code></td></tr>
+  </tbody>
+</table>
+</div>
+
+<h3>Grids de cabeçalho de seção</h3>
+
+<p>
+  Padrão <code>1fr 2fr</code> (eyebrow esquerda, h2 direita) com
+  <code>align-items: baseline</code>. Colapsa para <code>1fr</code> em
+  <code>max-width: 720px-860px</code>.
+</p>
+
+<pre><code>.section__head {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+  gap: clamp(20px, 4vw, 56px);
+  align-items: baseline;
+  margin-bottom: clamp(24px, 4vw, 56px);
+}</code></pre>
+
+<h3>Grids de conteúdo</h3>
+
+<div class="doc__table-wrap">
+<table>
+  <thead><tr><th>Padrão</th><th>Uso</th><th>Breakpoints</th></tr></thead>
+  <tbody>
+    <tr><td>3 colunas</td><td>grupos (funciona), vias</td><td><code>1000px → 2col</code>, <code>640px → 1col</code></td></tr>
+    <tr><td>2 colunas</td><td>ingresso, regras</td><td><code>860px → 1col</code></td></tr>
+    <tr><td>2 colunas mosaico</td><td>sensorial, contato (<code>gap: 2px</code>)</td><td><code>860px → 1col</code></td></tr>
+  </tbody>
+</table>
+</div>
+
+<h3>Mosaico de cartelas (sensorial e contato)</h3>
+<p>
+  Truque de borda interna: container com <code>gap: 2px</code> e
+  <code>background: color-mix(... 14-15%)</code> que aparece pelos
+  espaços. Cada <code>&lt;li&gt;</code> tem background sólido
+  (<code>var(--paper-warm)</code> ou <code>var(--ink)</code>). Produz
+  grid de células com divisórias finas sem borda explícita.
+</p>
+
+<h2><span class="num">05</span>Componentes</h2>
+
+<h3>Anatomia de seção</h3>
+
+<pre><code>&lt;section class="X" id="x"&gt;
+  &lt;div class="shell"&gt;
+    &lt;header class="X__head"&gt;
+      &lt;p class="eyebrow"&gt;
+        &lt;a class="section-link" href="#x"&gt;
+          NN · &lt;b&gt;Nome da seção&lt;/b&gt;
+        &lt;/a&gt;
+      &lt;/p&gt;
+      &lt;h2 class="X__title"&gt;
+        Título &lt;em&gt;com ênfase&lt;/em&gt;.
+      &lt;/h2&gt;
+    &lt;/header&gt;
+
+    &lt;!-- conteúdo: intro opcional + grid ou body --&gt;
+  &lt;/div&gt;
+&lt;/section&gt;</code></pre>
+
+<p>Cada seção:</p>
+<ul>
+  <li>Tem <code>id</code> único em kebab-case curto (<code>#inicio</code>, <code>#manifesto</code>, <code>#posicao</code>, <code>#funciona</code>, <code>#regras</code>, <code>#participar</code>, <code>#ingresso</code>, <code>#contato</code>, <code>#sensorial</code>).</li>
+  <li>Eyebrow numerado em sequência (<code>§ 00</code>, <code>§ 01</code>, …). Ao adicionar seção: renumerar todas a partir daquela posição.</li>
+  <li>Eyebrow envolvido em <code>.section-link</code> para virar permalink compartilhável.</li>
+</ul>
+
+<h3>Eyebrow</h3>
+<pre><code>.eyebrow {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  display: flex; align-items: center; gap: 10px;
+}
+.eyebrow::before {
+  content: "§";
+  color: var(--oxblood);
+  font-family: var(--display);
+  font-size: 16px;
+  font-style: italic;
+}
+.eyebrow b { color: var(--oxblood); font-weight: 500; }</code></pre>
+
+<p>Variantes para fundos escuros:</p>
+<ul>
+  <li><code>.pullquote__eyebrow</code>: <code>color: gold-soft</code>, <code>§</code> em <code>oxblood</code>.</li>
+  <li><code>.contato__eyebrow</code>: <code>color: gold-soft</code>, <code>b</code> em <code>paper</code>.</li>
+</ul>
+
+<h3>Section-link (permalink)</h3>
+<pre><code>.section-link { border-bottom: 0; }
+.section-link::after {
+  content: " #";
+  color: var(--oxblood);
+  opacity: 0;
+  margin-left: 0.4em;
+  transition: opacity 200ms ease;
+}
+.section-link:hover::after,
+.section-link:focus-visible::after { opacity: 1; }</code></pre>
+
+<p>
+  <code>#</code> aparece no hover/focus, em oxblood. Cor herdada do
+  eyebrow (sem override).
+</p>
+
+<h3>Hero</h3>
+<p>
+  Grid <code>7fr 4fr</code> (titular esquerda, lateral direita com
+  quote e notice sensorial). Lateral tem borda esquerda dourada
+  (<code>border-left: var(--rule)</code>). Hero é a única seção com
+  <code>reveal</code> escalonado (delays 80-640ms).
+</p>
+
+<h3>Standfirst (manifesto, quem somos)</h3>
+<p>
+  Header eyebrow + título. Corpo em <strong>duas colunas</strong>
+  (<code>columns: 2</code>) com <code>column-rule: var(--rule)</code>.
+  <strong>Drop cap</strong> na primeira letra do primeiro parágrafo:
+  Fraunces 144 SOFT 100 WONK 1, oxblood, <code>5.2em</code>, float
+  esquerda. Colapsa para 1 coluna em <code>720px</code>.
+</p>
+
+<h3>Pullquote</h3>
+<p>
+  Fundo <code>var(--ink)</code> (sempre escuro, independente do tema).
+  Gradiente radial sutil oxblood + gold como atmosfera. Citação enorme
+  em italic Fraunces 144, palavra-chave envolta em
+  <code>&lt;span&gt;</code> ganha <code>gold-soft</code> +
+  <code>font-style: normal</code> (contra-italic). Não animar. Não
+  introduzir estroboscópio mesmo em estado decorativo.
+</p>
+
+<h3>Cartelas</h3>
+
+<p>
+  Há quatro tipos com estrutura comum (borda topo + título +
+  descrição). Diferenças resumidas:
+</p>
+
+<div class="doc__table-wrap">
+<table>
+  <thead><tr><th>Classe</th><th>Topo</th><th>Numeração</th><th>Largura típica</th></tr></thead>
+  <tbody>
+    <tr><td><code>.via</code> (participar)</td><td><code>2px solid ink</code> + numeral i/ii grande oxblood</td><td>romano</td><td>3 colunas</td></tr>
+    <tr><td><code>.grupo</code> (funciona)</td><td><code>2px solid ink</code></td><td>sem número</td><td>3 colunas</td></tr>
+    <tr><td><code>.regra</code> (regras)</td><td><code>2px solid ink</code>, grid <code>auto 1fr</code></td><td>numeral display oxblood grande</td><td>2 colunas</td></tr>
+    <tr><td><code>.ingresso__block</code></td><td><code>2px solid ink</code></td><td>sem número</td><td>2 colunas</td></tr>
+  </tbody>
+</table>
+</div>
+
+<p>
+  Texto descritivo das cartelas: <code>14.5px</code>,
+  <code>line-height: 1.6</code>, <code>color: var(--ink-soft)</code>.
+</p>
+<p>
+  Nomes (<code>__name</code>) em Fraunces 36, weight 460,
+  <code>clamp(19-20px, 1.5-1.7vw, 24-26px)</code>. Em
+  <code>.grupo</code> o nome ganha cor oxblood (diferenciação visual de
+  grid mais denso).
+</p>
+
+<h3>Sensorial</h3>
+<p>
+  Fundo <code>var(--paper-warm)</code> + linha dourada fina no topo
+  (<code>::before height: 1px</code>). Grid <code>5fr 7fr</code>
+  (título esquerda, lista direita). Lista em mosaico 2×N com divisórias
+  <code>gap: 2px</code>. Cada item: rótulo mono oxblood caixa-alta +
+  descrição.
+</p>
+
+<h3>Contato (fundo escuro)</h3>
+<p>
+  Mesmo padrão da pullquote: <code>background: var(--ink)</code>,
+  sempre escuro. Grid <code>5fr 7fr</code>. Lista de canais em mosaico
+  2×N com <code>gap: 2px</code> e divisor papel/transparente. Aviso de
+  cuidado com <code>border-left: 2px solid var(--oxblood)</code>.
+</p>
+
+<h3>Masthead</h3>
+<p>
+  Linha grossa + linha fina douradas em cima. Grid
+  <code>auto 1fr auto</code> (marca, nav, meta). Nav em mono caixa-alta
+  com underline animado oxblood (<code>scaleX 0 → 1</code> em
+  <code>260ms</code>).
+</p>
+
+<p>Marca:</p>
+<pre><code>&lt;svg class="brand__mark" viewBox="0 0 24 24"&gt;
+  &lt;path class="star-outline"
+        d="M12 0.6 L14.9 8.5 ..." /&gt;
+&lt;/svg&gt;</code></pre>
+
+<p>
+  Estrela 10 pontas <strong>ligeiramente assimétrica</strong> (gesto
+  de neurodivergência). Fill oxblood, stroke gold <code>0.6</code>.
+  Não simetrizar.
+</p>
+
+<p>
+  Meta no canto: ano · edição · botão de tema. Botão de tema em mono
+  caixa baixa com borda fininha; troca de label
+  <code>◑ tema escuro</code> / <code>◐ tema claro</code>.
+</p>
+
+<h3>Footer (cry)</h3>
+<p>
+  Fundo <code>var(--ink)</code>. Brado de fechamento em Fraunces 144
+  com <code>em</code> em <code>gold-soft</code> e <code>&lt;u&gt;</code>
+  com <code>text-decoration-color: oxblood</code>,
+  <code>text-decoration-thickness: 4px</code>,
+  <code>text-underline-offset: 8px</code>. Régua oxblood
+  <code>2px</code> no topo (<code>::before</code>).
+</p>
+
+<p>Colunas (<code>grid-template-columns: repeat(4, 1fr)</code>):</p>
+<ol>
+  <li>Coletivo (Manifesto, Participar, Regras)</li>
+  <li>Acesso (Cuidado sensorial, Relatar barreira)</li>
+  <li>Contato (e-mail)</li>
+  <li>Princípio editorial (parágrafo)</li>
+</ol>
+
+<p>
+  Base inferior: ano · CC BY-SA 4.0 · "Feito com cuidado, sem pressa".
+</p>
+
+<h2><span class="num">06</span>Movimento</h2>
+
+<h3>Reveal único, suave</h3>
+<pre><code>.reveal {
+  opacity: 0;
+  transform: translateY(8px);
+  animation: gentleRise 900ms cubic-bezier(.2, .6, .2, 1) forwards;
+}
+.reveal-1 { animation-delay: 80ms; }
+.reveal-2 { animation-delay: 220ms; }
+.reveal-3 { animation-delay: 360ms; }
+.reveal-4 { animation-delay: 500ms; }
+.reveal-5 { animation-delay: 640ms; }</code></pre>
+
+<p>
+  Usado apenas no hero/masthead. Não aplicar a seções de baixo da
+  página (não usar scroll-triggered: ambígua para usuários sensoriais).
+</p>
+
+<h3>Transições padrão</h3>
+<ul>
+  <li>Hover de link: <code>border-color, color</code> em <code>240ms ease</code>.</li>
+  <li>Underline animado: <code>transform 260ms ease</code>.</li>
+  <li>Section-link "#": <code>opacity 200ms ease</code>.</li>
+  <li>Botão tema: <code>220ms ease</code>.</li>
+</ul>
+
+<h3>Reduced motion</h3>
+<p>Já implementado globalmente:</p>
+<pre><code>@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}</code></pre>
+
+<p>
+  Toda animação/transition adicionada precisa respeitar esse override
+  (usar variáveis de animação, não hardcode burlando o
+  <code>!important</code>).
+</p>
+
+<h3>Proibido sempre</h3>
+<p>Mesmo com motion habilitado:</p>
+<ul>
+  <li>Parallax.</li>
+  <li>Autoplay de vídeo ou áudio.</li>
+  <li>Carrossel automático.</li>
+  <li>Scroll hijacking.</li>
+  <li>Contadores animados, números que pulam.</li>
+  <li>Qualquer pulso, piscar, oscilação de luminosidade.</li>
+</ul>
+
+<h2><span class="num">07</span>Acessibilidade</h2>
+
+<h3>Skip link</h3>
+<pre><code>&lt;a class="skip" href="#conteudo"&gt;Pular para o conteúdo&lt;/a&gt;</code></pre>
+<p>Escondido fora do viewport, aparece em foco. Outline gold <code>2px</code>.</p>
+
+<h3>Focus ring</h3>
+<pre><code>*:focus-visible {
+  outline: 2px solid var(--oxblood);
+  outline-offset: 3px;
+  border-radius: 1px;
+}</code></pre>
+<p>Sempre visível. Não remover. Não substituir por <code>outline: none</code>.</p>
+
+<h3>Imagens</h3>
+<ul>
+  <li>Decorativas: <code>aria-hidden="true"</code> + <code>alt=""</code>.</li>
+  <li>Informativas: <code>alt</code> descritivo em pt-BR.</li>
+  <li>SVGs decorativos (<code>brand__mark</code>, ícones): <code>aria-hidden="true"</code>.</li>
+</ul>
+
+<h3>Tema escuro</h3>
+<p>
+  Detecção automática via <code>prefers-color-scheme</code>, persistência
+  via <code>localStorage.cpa-theme</code>. Inline script no
+  <code>&lt;head&gt;</code> para evitar flash de tema errado.
+</p>
+
+<h3>Zoom</h3>
+<p>
+  Layout permite leitura em zoom até 200% sem quebra (todos os tamanhos
+  em <code>clamp()</code> ou <code>rem</code>, sem <code>px</code>
+  rígido em texto corrido).
+</p>
+
+<h2><span class="num">08</span>Estrutura semântica</h2>
+
+<h3>HTML</h3>
+<ul>
+  <li><code>&lt;header class="masthead"&gt;</code> no topo.</li>
+  <li><code>&lt;main id="conteudo"&gt;</code> envolve todas as seções.</li>
+  <li>Cada <code>&lt;section&gt;</code> tem <code>id</code> + classe própria.</li>
+  <li>Cabeçalho de seção em <code>&lt;header class="X__head"&gt;</code> com <code>&lt;p class="eyebrow"&gt;</code> e <code>&lt;h2 class="X__title"&gt;</code>.</li>
+  <li>Cartelas em <code>&lt;article class="X"&gt;</code>.</li>
+  <li><code>&lt;footer class="cry"&gt;</code> no fim.</li>
+</ul>
+
+<h3>Ordem das seções</h3>
+<p>Ver <code>CLAUDE.md</code> (única fonte da verdade).</p>
+
+<h3>Nomenclatura BEM</h3>
+<p>
+  <code>bloco__elemento</code> (duas underscores). Sem
+  <code>--modificador</code> no projeto atual (paleta simples). Manter
+  consistência ao criar componente novo.
+</p>
+
+<h2><span class="num">09</span>Escrita</h2>
+
+<p>Regras detalhadas no <code>CLAUDE.md</code>. Resumo visual:</p>
+
+<ul>
+  <li><strong>Idioma</strong>: pt-BR.</li>
+  <li><strong>Pessoa autista é sujeito político</strong>, identity-first.</li>
+  <li><strong>Sem em-dash</strong> (U+2014) em hipótese alguma.</li>
+  <li><strong>Sem en-dash</strong> (U+2013) tampouco.</li>
+  <li><strong>Sem emoji</strong> em texto institucional.</li>
+  <li><strong>Sem aspas retas</strong> (<code>"</code>) em prosa: usar <code>"" '</code>.</li>
+  <li><strong>Sem "É importante destacar", "Em suma", "Por fim"</strong>.</li>
+  <li><strong><code>·</code> (middot)</strong> apenas em separadores curtos (mastheads, créditos, eyebrows), nunca em prosa.</li>
+  <li><strong>Linguagem inclusiva</strong>: "todas as pessoas", "participantes", "pessoas autistas", "aliades".</li>
+</ul>
+
+<h2><span class="num">10</span>Anti-patterns</h2>
+
+<p>Coisas que <strong>não fazer</strong>, listadas para não esquecer:</p>
+
+<ul>
+  <li>Branco puro <code>#FFFFFF</code>, preto puro <code>#000000</code>, cor saturada.</li>
+  <li>Cor nova fora dos tokens em <code>:root</code>.</li>
+  <li>Em-dash, en-dash, emoji em texto.</li>
+  <li><code>font-size</code> em <code>px</code> rígido para texto corrido.</li>
+  <li>Animação que pulse, pisque ou oscile em luminosidade.</li>
+  <li>Autoplay (vídeo, áudio).</li>
+  <li>Símbolo do quebra-cabeça, azul como símbolo do autismo.</li>
+  <li>Remoção de <code>outline</code> em foco.</li>
+  <li>Termos patologizantes: "portador de", "sofre de", "vítima".</li>
+  <li>Carrossel, parallax, scroll hijacking, contador animado.</li>
+  <li>Footer/header diferente entre páginas (no momento só <code>index.html</code>).</li>
+</ul>
+
+<h2><span class="num">11</span>Arquivo único</h2>
+
+<p>
+  Site é <strong>single-file</strong> (<code>index.html</code>) com CSS
+  embutido. Sem build step, sem framework. JS mínimo (toggle de tema).
+  Fontes via Google Fonts.
+</p>
+
+<p>Ao crescer, manter:</p>
+<ul>
+  <li>CSS embutido na mesma <code>&lt;style&gt;</code> no topo (não fragmentar em arquivos externos sem revisão).</li>
+  <li>Tokens em <code>:root</code> sempre primeiros.</li>
+  <li>Comentários de seção em banner ASCII (<code>/* === NOME === */</code>) para facilitar navegação.</li>
+</ul>
+
+<p>Para preview local:</p>
+<pre><code>python3 -m http.server 8765</code></pre>
+
+</article>
+</main>
+
+<footer class="shell foot">
+  <span>CPA · Documento <b>interno</b></span>
+  <span>Não indexado · <b>noindex</b>, <b>nofollow</b></span>
+  <span>Atualizado a partir de <code>IDENTIDADE.md</code></span>
+</footer>
+
+<script>
+(function () {
+  var btn = document.getElementById('theme-toggle');
+  var html = document.documentElement;
+  function apply(theme) {
+    html.dataset.theme = theme;
+    localStorage.setItem('cpa-theme', theme);
+    btn.textContent = theme === 'dark' ? '◐ tema claro' : '◑ tema escuro';
+    btn.setAttribute('aria-label', theme === 'dark' ? 'Mudar para tema claro' : 'Mudar para tema escuro');
+  }
+  apply(html.dataset.theme || 'light');
+  btn.addEventListener('click', function () {
+    apply(html.dataset.theme === 'dark' ? 'light' : 'dark');
+  });
+}());
+</script>
+</body>
+</html>
