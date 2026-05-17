@@ -1,0 +1,50 @@
+# Backup config para Nextcloud do CPA.
+# Roda dentro do container `backup` (b3vis/borgmatic).
+# /data agrega o volume do Nextcloud e o do Postgres (read-only).
+# Postgres tem pg_dump dedicado para consistência transacional.
+
+source_directories:
+    - /data
+
+repositories:
+    - path: ${BORG_REPO_PRIMARY}
+      label: "Primary Backup"
+    - path: ${BORG_REPO_SECONDARY}
+      label: "Secondary Backup"
+
+compression: auto,zstd
+archive_name_format: '{hostname}-{now:%Y-%m-%d-%H%M%S}'
+
+retries: 5
+retry_wait: 5
+
+keep_hourly: 48
+keep_daily: 7
+keep_weekly: 4
+keep_monthly: 12
+
+checks:
+  - name: repository
+    frequency: 4 weeks
+  - name: archives
+    frequency: 8 weeks
+
+check_last: 3
+
+postgresql_databases:
+    - name: nextcloud
+      hostname: db
+      port: 5432
+      username: nextcloud
+      password: ${POSTGRES_PASSWORD}
+      format: custom
+
+commands:
+    - before: action
+      when: [create]
+      run:
+          - echo "`date` - Starting cpa-nextcloud backup"
+    - after: action
+      when: [create]
+      run:
+          - echo "`date` - Finished cpa-nextcloud backup"

@@ -1,0 +1,124 @@
+# Nextcloud do CPA · cloud.coletivopopularautista.com.br
+#
+# Stack separado do site (lifecycle independente).
+# Caddy reverse-proxy externo capta o serviço via labels.
+#
+# Usage:
+#   bash deploy.sh
+
+services:
+  app:
+    image: nextcloud:stable-apache
+    environment:
+      POSTGRES_HOST: db
+      POSTGRES_DB: nextcloud
+      POSTGRES_USER: nextcloud
+      POSTGRES_PASSWORD: "${POSTGRES_PASSWORD}"
+      REDIS_HOST: redis
+      NEXTCLOUD_ADMIN_USER: "${NEXTCLOUD_ADMIN_USER}"
+      NEXTCLOUD_ADMIN_PASSWORD: "${NEXTCLOUD_ADMIN_PASSWORD}"
+      NEXTCLOUD_TRUSTED_DOMAINS: "${NEXTCLOUD_HOST}"
+      TRUSTED_PROXIES: "10.0.0.0/8 172.16.0.0/12 192.168.0.0/16"
+      OVERWRITEPROTOCOL: https
+      OVERWRITEHOST: "${NEXTCLOUD_HOST}"
+      OVERWRITECLIURL: "https://${NEXTCLOUD_HOST}"
+      PHP_MEMORY_LIMIT: 1G
+      PHP_UPLOAD_LIMIT: 16G
+    volumes:
+      - nextcloud_app:/var/www/html
+    depends_on: [db, redis]
+    deploy:
+      replicas: 1
+      placement: { constraints: [node.role == manager] }
+      restart_policy: { condition: any, delay: 5s }
+      labels:
+        - "caddy=${NEXTCLOUD_HOST}"
+        - "caddy.reverse_proxy={{upstreams 80}}"
+        - "caddy.rewrite_0=/.well-known/carddav /remote.php/dav"
+        - "caddy.rewrite_1=/.well-known/caldav /remote.php/dav"
+    networks: [default, caddy]
+
+  db:
+    image: postgres:16-alpine
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U nextcloud"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+    environment:
+      POSTGRES_DB: nextcloud
+      POSTGRES_USER: nextcloud
+      POSTGRES_PASSWORD: "${POSTGRES_PASSWORD}"
+    volumes:
+      - nextcloud_db:/var/lib/postgresql/data
+    deploy:
+      replicas: 1
+      placement: { constraints: [node.role == manager] }
+      restart_policy: { condition: on-failure, delay: 5s }
+
+  redis:
+    image: redis:7-alpine
+    command: ["redis-server", "--save", "", "--appendonly", "no"]
+    deploy:
+      replicas: 1
+      placement: { constraints: [node.role == manager] }
+      restart_policy: { condition: any, delay: 5s }
+
+  cron:
+    image: nextcloud:stable-apache
+    entrypoint: /cron.sh
+    volumes:
+      - nextcloud_app:/var/www/html
+    depends_on: [app]
+    deploy:
+      replicas: 1
+      placement: { constraints: [node.role == manager] }
+      restart_policy: { condition: any, delay: 5s }
+
+  collabora:
+    image: collabora/code:25.04.2.1.1
+    environment:
+      - dictionaries=en_GB en_US pt_BR
+      - extra_params=--o:ssl.enable=false --o:ssl.termination=true
+      - DONT_GEN_SSL_CERT=true
+      - domain=${NEXTCLOUD_HOST}
+    deploy:
+      replicas: 1
+      placement: { constraints: [node.role == manager] }
+      restart_policy: { condition: any, delay: 5s }
+      labels:
+        - "caddy=${COLLABORA_HOST}"
+        - "caddy.reverse_proxy={{upstreams 9980}}"
+    networks: [default, caddy]
+
+  backup:
+    image: b3vis/borgmatic:2.0.2-fix
+    volumes:
+      - nextcloud_app:/data/nextcloud:ro
+      - nextcloud_db:/data/postgres:ro
+      - /root/.ssh:/root/.ssh:ro
+    configs:
+      - { source: borgmatic-config, target: /etc/borgmatic.d/config.yaml }
+    environment:
+      - BORG_PASSPHRASE=${BORG_PASSPHRASE}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - BACKUP_CRON=0 * * * *
+    depends_on: [db]
+    deploy:
+      replicas: 1
+      placement: { constraints: [node.role == manager] }
+      restart_policy: { condition: on-failure, delay: 5s }
+
+volumes:
+  nextcloud_app:
+  nextcloud_db:
+
+configs:
+  borgmatic-config:
+    file: ./borgmatic-config.yaml
+
+networks:
+  default:
+  caddy:
+    external: true
