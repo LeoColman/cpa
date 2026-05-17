@@ -120,10 +120,11 @@ Ordem das seções (numeradas em `§`):
 - `§ 01` Quem somos (standfirst)
 - `§ 02` Posição política (pull-quote)
 - `§ 03` Como funciona o coletivo
-- `§ 04` Como participar
-- `§ 05` Ingresso e desvinculação
-- `§ 06` Contato
-- `§ 07` Cuidado sensorial
+- `§ 04` Regras do coletivo
+- `§ 05` Como participar
+- `§ 06` Ingresso e desvinculação
+- `§ 07` Contato
+- `§ 08` Cuidado sensorial
 - Footer (brado de fechamento)
 
 Ao adicionar nova seção, renumerar os `§` em ordem.

@@ -736,6 +736,74 @@ img, svg { display: block; max-width: 100%; }
 }
 
 /* ============================================================
+   REGRAS DO COLETIVO
+   ============================================================ */
+
+.regras {
+  border-top: 2px solid var(--ink);
+  padding: clamp(56px, 8vw, 120px) 0;
+}
+.regras__head {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+  gap: clamp(20px, 4vw, 56px);
+  align-items: baseline;
+  margin-bottom: clamp(24px, 3vw, 40px);
+}
+.regras__title {
+  font-family: var(--display);
+  font-variation-settings: "opsz" 72, "SOFT" 50, "WONK" 0;
+  font-weight: 380;
+  font-size: clamp(34px, 4.5vw, 64px);
+  line-height: 0.98;
+  letter-spacing: -0.02em;
+}
+.regras__title em {
+  font-style: italic;
+  color: var(--oxblood);
+  font-variation-settings: "opsz" 72, "SOFT" 100, "WONK" 1;
+}
+.regras__intro {
+  max-width: 70ch;
+  margin-bottom: clamp(32px, 4vw, 56px);
+  font-size: clamp(15.5px, 1.05vw, 17px);
+  line-height: 1.65;
+  color: var(--ink-soft);
+}
+.regras__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: clamp(20px, 2.5vw, 36px) clamp(28px, 4vw, 56px);
+}
+.regra {
+  border-top: 2px solid var(--ink);
+  padding-top: 18px;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 18px;
+  align-items: baseline;
+}
+.regra__num {
+  font-family: var(--display);
+  font-variation-settings: "opsz" 144, "SOFT" 100, "WONK" 1;
+  font-style: italic;
+  font-weight: 380;
+  font-size: clamp(32px, 3.2vw, 44px);
+  line-height: 1;
+  color: var(--oxblood);
+}
+.regra__text {
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: var(--ink-soft);
+}
+
+@media (max-width: 860px) {
+  .regras__head { grid-template-columns: 1fr; gap: 20px; }
+  .regras__grid { grid-template-columns: 1fr; }
+}
+
+/* ============================================================
    SENSORIAL: accessibility manifesto
    ============================================================ */
 
@@ -1294,13 +1362,120 @@ footer.cry::before {
 </section>
 
 <!-- ============================================================
+     REGRAS DO COLETIVO
+     ============================================================ -->
+<section class="regras" id="regras">
+  <div class="shell">
+
+    <header class="regras__head">
+      <p class="eyebrow"><a class="section-link" href="#regras">04 · <b>Regras do coletivo</b></a></p>
+      <h2 class="regras__title">
+        O que <em>vale</em> nos grupos.
+      </h2>
+    </header>
+
+    <p class="regras__intro">
+      Estas regras valem em todos os espaços do coletivo. Existem para
+      sustentar convivência segura e respeito mútuo. Desrespeito leva a
+      advertência ou desligamento, conforme decisão da administração.
+    </p>
+
+    <div class="regras__grid">
+
+      <article class="regra">
+        <span class="regra__num">01</span>
+        <p class="regra__text">
+          Respeito mútuo: tratar todas as pessoas com cordialidade e gentileza.
+        </p>
+      </article>
+
+      <article class="regra">
+        <span class="regra__num">02</span>
+        <p class="regra__text">
+          É proibida a discriminação por raça, gênero, sexualidade, credo
+          religioso, condições físicas ou qualquer outra característica.
+        </p>
+      </article>
+
+      <article class="regra">
+        <span class="regra__num">03</span>
+        <p class="regra__text">
+          Nenhum tipo de assédio é tolerado, nos grupos ou em mensagens
+          privadas a participantes.
+        </p>
+      </article>
+
+      <article class="regra">
+        <span class="regra__num">04</span>
+        <p class="regra__text">
+          Proibido chamar alguém no privado sem consentimento.
+        </p>
+      </article>
+
+      <article class="regra">
+        <span class="regra__num">05</span>
+        <p class="regra__text">
+          Não cabe julgar o diagnóstico de ninguém. Qualquer discriminação por
+          esse motivo é vedada.
+        </p>
+      </article>
+
+      <article class="regra">
+        <span class="regra__num">06</span>
+        <p class="regra__text">
+          Projetos com fins monetários, divulgação ou autopromoção são
+          proibidos, salvo autorização prévia da administração.
+        </p>
+      </article>
+
+      <article class="regra">
+        <span class="regra__num">07</span>
+        <p class="regra__text">
+          Proibido compartilhar ou pedir dados pessoais de qualquer natureza.
+        </p>
+      </article>
+
+      <article class="regra">
+        <span class="regra__num">08</span>
+        <p class="regra__text">
+          Nada de fotos íntimas (nudes) ou pornografia.
+        </p>
+      </article>
+
+      <article class="regra">
+        <span class="regra__num">09</span>
+        <p class="regra__text">
+          Proibido expor outras pessoas, por fotos ou prints.
+        </p>
+      </article>
+
+      <article class="regra">
+        <span class="regra__num">10</span>
+        <p class="regra__text">
+          Proibido flood (mensagens repetitivas em sequência) nos grupos.
+        </p>
+      </article>
+
+      <article class="regra">
+        <span class="regra__num">11</span>
+        <p class="regra__text">
+          Nenhum crime, alusão a crime ou apologia será aceito.
+        </p>
+      </article>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
      PARTICIPAR
      ============================================================ -->
 <section class="participar" id="participar">
   <div class="shell">
 
     <header class="participar__head">
-      <p class="eyebrow"><a class="section-link" href="#participar">04 · <b>Como participar</b></a></p>
+      <p class="eyebrow"><a class="section-link" href="#participar">05 · <b>Como participar</b></a></p>
       <h2 class="participar__title">
         Como <em>participar</em>:
       </h2>
@@ -1340,7 +1515,7 @@ footer.cry::before {
   <div class="shell">
 
     <header class="ingresso__head">
-      <p class="eyebrow"><a class="section-link" href="#ingresso">05 · <b>Ingresso e desvinculação</b></a></p>
+      <p class="eyebrow"><a class="section-link" href="#ingresso">06 · <b>Ingresso e desvinculação</b></a></p>
       <h2 class="ingresso__title">
         Como <em>entrar</em>, e como <em>sair</em>.
       </h2>
@@ -1390,7 +1565,7 @@ footer.cry::before {
     <div class="contato__grid">
 
       <div>
-        <p class="contato__eyebrow"><a class="section-link" href="#contato">06 · <b>Contato</b></a></p>
+        <p class="contato__eyebrow"><a class="section-link" href="#contato">07 · <b>Contato</b></a></p>
         <h2 class="contato__title">
           Fale com <em>o coletivo</em>.
         </h2>
@@ -1430,7 +1605,7 @@ footer.cry::before {
     <div class="sensorial__grid">
 
       <div>
-        <p class="eyebrow"><a class="section-link" href="#sensorial">07 · <b>Cuidado sensorial</b></a></p>
+        <p class="eyebrow"><a class="section-link" href="#sensorial">08 · <b>Cuidado sensorial</b></a></p>
         <h2 class="sensorial__title">
           Este site foi feito por autistas, <em>para autistas</em>.
         </h2>
