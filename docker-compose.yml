@@ -25,8 +25,12 @@ services:
   # Monta o repo no mesmo caminho do host para que docker stack deploy
   # resolva bind mounts corretamente.
   deploy-webhook:
-    image: node:22-alpine
-    entrypoint: ["node", "/root/manual-stacks/cpa/deploy-server.js"]
+    image: docker:27-cli
+    entrypoint: ["/bin/sh", "-c"]
+    command:
+      - |
+        apk add --no-cache nodejs git bash openssl >/dev/null
+        exec node /root/manual-stacks/cpa/deploy-server.js
     working_dir: /root/manual-stacks/cpa
     environment:
       - AGENT_TOKEN=${AGENT_TOKEN}
