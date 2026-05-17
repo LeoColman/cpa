@@ -305,6 +305,17 @@ img, svg { display: block; max-width: 100%; }
 }
 .eyebrow b { color: var(--oxblood); font-weight: 500; }
 
+.section-link { border-bottom: 0; }
+.section-link::after {
+  content: " #";
+  color: var(--oxblood);
+  opacity: 0;
+  margin-left: 0.4em;
+  transition: opacity 200ms ease;
+}
+.section-link:hover::after,
+.section-link:focus-visible::after { opacity: 1; }
+
 .hero__headline {
   font-family: var(--display);
   font-variation-settings: "opsz" 144, "SOFT" 80, "WONK" 1;
@@ -985,12 +996,12 @@ footer.cry::before {
 <!-- ============================================================
      HERO
      ============================================================ -->
-<section class="hero">
+<section class="hero" id="inicio">
   <div class="shell">
     <div class="hero__grid">
 
       <div>
-        <p class="eyebrow reveal reveal-2">00 · <b>Manifesto inicial</b></p>
+        <p class="eyebrow reveal reveal-2"><a class="section-link" href="#inicio">00 · <b>Manifesto inicial</b></a></p>
 
         <h1 class="hero__headline reveal reveal-3">
           Não somos<br>
@@ -1032,7 +1043,7 @@ footer.cry::before {
   <div class="shell">
 
     <header class="standfirst__head">
-      <p class="eyebrow">01 · <b>Quem somos</b></p>
+      <p class="eyebrow"><a class="section-link" href="#manifesto">01 · <b>Quem somos</b></a></p>
       <h2 class="standfirst__title">
         Um coletivo de luta, <em>nascido da escuta</em>, não do diagnóstico.
       </h2>
@@ -1070,9 +1081,9 @@ footer.cry::before {
 <!-- ============================================================
      PULL QUOTE
      ============================================================ -->
-<section class="pullquote">
+<section class="pullquote" id="posicao">
   <div class="shell">
-    <p class="pullquote__eyebrow">02 · Posição política</p>
+    <p class="pullquote__eyebrow"><a class="section-link" href="#posicao">02 · Posição política</a></p>
     <blockquote>
       O capacitismo é <span>função</span> do capital. E cai com ele.
     </blockquote>
@@ -1126,7 +1137,7 @@ footer.cry::before {
   <div class="shell">
 
     <header class="ingresso__head">
-      <p class="eyebrow">03 · <b>Ingresso e desvinculação</b></p>
+      <p class="eyebrow"><a class="section-link" href="#ingresso">03 · <b>Ingresso e desvinculação</b></a></p>
       <h2 class="ingresso__title">
         Como <em>entrar</em>, e como <em>sair</em>.
       </h2>
@@ -1176,7 +1187,7 @@ footer.cry::before {
     <div class="contato__grid">
 
       <div>
-        <p class="contato__eyebrow">04 · <b>Contato</b></p>
+        <p class="contato__eyebrow"><a class="section-link" href="#contato">04 · <b>Contato</b></a></p>
         <h2 class="contato__title">
           Fale com <em>o coletivo</em>.
         </h2>
@@ -1216,7 +1227,7 @@ footer.cry::before {
     <div class="sensorial__grid">
 
       <div>
-        <p class="eyebrow">05 · <b>Cuidado sensorial</b></p>
+        <p class="eyebrow"><a class="section-link" href="#sensorial">05 · <b>Cuidado sensorial</b></a></p>
         <h2 class="sensorial__title">
           Este site foi feito por autistas, <em>para autistas</em>.
         </h2>
