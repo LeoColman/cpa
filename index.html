@@ -666,6 +666,76 @@ img, svg { display: block; max-width: 100%; }
 }
 
 /* ============================================================
+   COMO FUNCIONA O COLETIVO
+   ============================================================ */
+
+.funciona {
+  border-top: 2px solid var(--ink);
+  padding: clamp(56px, 8vw, 120px) 0;
+}
+.funciona__head {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+  gap: clamp(20px, 4vw, 56px);
+  align-items: baseline;
+  margin-bottom: clamp(24px, 3vw, 40px);
+}
+.funciona__title {
+  font-family: var(--display);
+  font-variation-settings: "opsz" 72, "SOFT" 50, "WONK" 0;
+  font-weight: 380;
+  font-size: clamp(34px, 4.5vw, 64px);
+  line-height: 0.98;
+  letter-spacing: -0.02em;
+}
+.funciona__title em {
+  font-style: italic;
+  color: var(--oxblood);
+  font-variation-settings: "opsz" 72, "SOFT" 100, "WONK" 1;
+}
+.funciona__intro {
+  max-width: 70ch;
+  margin-bottom: clamp(32px, 4vw, 56px);
+  font-size: clamp(15.5px, 1.05vw, 17px);
+  line-height: 1.65;
+  color: var(--ink-soft);
+}
+.funciona__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(24px, 3vw, 40px);
+}
+.grupo {
+  border-top: 2px solid var(--ink);
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.grupo__name {
+  font-family: var(--display);
+  font-variation-settings: "opsz" 36, "SOFT" 70;
+  font-weight: 460;
+  font-size: clamp(19px, 1.5vw, 24px);
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+  color: var(--oxblood);
+}
+.grupo__desc {
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: var(--ink-soft);
+}
+
+@media (max-width: 1000px) {
+  .funciona__head { grid-template-columns: 1fr; gap: 20px; }
+  .funciona__grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 640px) {
+  .funciona__grid { grid-template-columns: 1fr; }
+}
+
+/* ============================================================
    SENSORIAL: accessibility manifesto
    ============================================================ */
 
@@ -1092,13 +1162,145 @@ footer.cry::before {
 </section>
 
 <!-- ============================================================
+     COMO FUNCIONA O COLETIVO
+     ============================================================ -->
+<section class="funciona" id="funciona">
+  <div class="shell">
+
+    <header class="funciona__head">
+      <p class="eyebrow"><a class="section-link" href="#funciona">03 · <b>Como funciona o coletivo</b></a></p>
+      <h2 class="funciona__title">
+        A organização <em>por dentro</em>.
+      </h2>
+    </header>
+
+    <p class="funciona__intro">
+      O CPA se organiza em uma comunidade com diferentes grupos temáticos,
+      estruturados a partir dos interesses, demandas e áreas de atuação dos
+      participantes. Cada espaço tem finalidade própria e existe para sustentar
+      organização, convivência saudável e fortalecimento coletivo.
+    </p>
+
+    <div class="funciona__grid">
+
+      <article class="grupo">
+        <h3 class="grupo__name">Chat Livre</h3>
+        <p class="grupo__desc">
+          Espaço para conversas cotidianas e assuntos gerais. Qualquer tema é
+          bem-vindo, desde que esteja em conformidade com as regras do coletivo
+          e respeite os demais participantes.
+        </p>
+      </article>
+
+      <article class="grupo">
+        <h3 class="grupo__name">Equipe Interna</h3>
+        <p class="grupo__desc">
+          Grupo de organização administrativa e discussões internas do
+          coletivo. Acesso exclusivo da equipe de administração e coordenação.
+        </p>
+      </article>
+
+      <article class="grupo">
+        <h3 class="grupo__name">Luta de Classe</h3>
+        <p class="grupo__desc">
+          Debates sobre política, história, conceitos marxistas, atualidades e
+          o cenário político e social.
+        </p>
+      </article>
+
+      <article class="grupo">
+        <h3 class="grupo__name">Rede de Apoio</h3>
+        <p class="grupo__desc">
+          Espaço para acolhimento emocional, troca de experiências, conselhos e
+          apoio mútuo. O coletivo não substitui acompanhamento profissional,
+          psicológico ou terapêutico. Cuidado, responsabilidade e sensibilidade
+          são fundamentais ao lidar com pessoas em situação de vulnerabilidade
+          emocional.
+        </p>
+      </article>
+
+      <article class="grupo">
+        <h3 class="grupo__name">Geek</h3>
+        <p class="grupo__desc">
+          Conversas sobre cultura nerd e geek em geral: jogos, quadrinhos,
+          tecnologia, animes, filmes, séries e temas relacionados.
+        </p>
+      </article>
+
+      <article class="grupo">
+        <h3 class="grupo__name">Agitação e Propaganda</h3>
+        <p class="grupo__desc">
+          Produção de materiais de comunicação interna e externa do coletivo.
+          Quem tem interesse em contribuir deve falar com a administração para
+          alinhar demandas e organizar atividades.
+        </p>
+      </article>
+
+      <article class="grupo">
+        <h3 class="grupo__name">Cultura Pop e Arte</h3>
+        <p class="grupo__desc">
+          Debates e compartilhamento de conteúdos sobre filmes, séries,
+          músicas, jogos e produções artísticas em geral, inclusive trabalhos
+          autorais, sempre com os devidos créditos.
+        </p>
+      </article>
+
+      <article class="grupo">
+        <h3 class="grupo__name">Vagas e Oportunidades</h3>
+        <p class="grupo__desc">
+          Espaço de divulgação de vagas de emprego, oportunidades profissionais
+          e serviços autônomos oferecidos por participantes da comunidade,
+          voltados ao público PCD ou não.
+        </p>
+      </article>
+
+      <article class="grupo">
+        <h3 class="grupo__name">Estudos e Leituras</h3>
+        <p class="grupo__desc">
+          Compartilhamento de estudos, debates teóricos e indicações de livros,
+          artigos e demais materiais de leitura. Sugestões e recomendações são
+          sempre bem-vindas.
+        </p>
+      </article>
+
+      <article class="grupo">
+        <h3 class="grupo__name">Esportes e Saúde</h3>
+        <p class="grupo__desc">
+          Discussões sobre saúde, bem-estar, autocuidado, qualidade de vida e
+          práticas esportivas.
+        </p>
+      </article>
+
+      <article class="grupo">
+        <h3 class="grupo__name">Toró de Ideias</h3>
+        <p class="grupo__desc">
+          Troca de sugestões, propostas de conteúdo, ideias de publicações e
+          desenvolvimento de projetos para o coletivo.
+        </p>
+      </article>
+
+      <article class="grupo">
+        <h3 class="grupo__name">Tecnologia e Classes</h3>
+        <p class="grupo__desc">
+          Discussões sobre tecnologia, informática e temas relacionados. Também
+          serve como ambiente de organização para participantes envolvidos na
+          construção e manutenção do site do coletivo.
+        </p>
+      </article>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
      PARTICIPAR
      ============================================================ -->
 <section class="participar" id="participar">
   <div class="shell">
 
     <header class="participar__head">
-      <p class="eyebrow"><a class="section-link" href="#participar">03 · <b>Como participar</b></a></p>
+      <p class="eyebrow"><a class="section-link" href="#participar">04 · <b>Como participar</b></a></p>
       <h2 class="participar__title">
         Como <em>participar</em>:
       </h2>
@@ -1138,7 +1340,7 @@ footer.cry::before {
   <div class="shell">
 
     <header class="ingresso__head">
-      <p class="eyebrow"><a class="section-link" href="#ingresso">04 · <b>Ingresso e desvinculação</b></a></p>
+      <p class="eyebrow"><a class="section-link" href="#ingresso">05 · <b>Ingresso e desvinculação</b></a></p>
       <h2 class="ingresso__title">
         Como <em>entrar</em>, e como <em>sair</em>.
       </h2>
@@ -1188,7 +1390,7 @@ footer.cry::before {
     <div class="contato__grid">
 
       <div>
-        <p class="contato__eyebrow"><a class="section-link" href="#contato">05 · <b>Contato</b></a></p>
+        <p class="contato__eyebrow"><a class="section-link" href="#contato">06 · <b>Contato</b></a></p>
         <h2 class="contato__title">
           Fale com <em>o coletivo</em>.
         </h2>
@@ -1228,7 +1430,7 @@ footer.cry::before {
     <div class="sensorial__grid">
 
       <div>
-        <p class="eyebrow"><a class="section-link" href="#sensorial">06 · <b>Cuidado sensorial</b></a></p>
+        <p class="eyebrow"><a class="section-link" href="#sensorial">07 · <b>Cuidado sensorial</b></a></p>
         <h2 class="sensorial__title">
           Este site foi feito por autistas, <em>para autistas</em>.
         </h2>
