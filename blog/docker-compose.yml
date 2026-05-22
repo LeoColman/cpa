@@ -38,7 +38,7 @@ services:
       labels:
         - "caddy=${CPA_HOST}"
         - "caddy.@blog.path=/blog /blog/*"
-        - "caddy.handle.@blog.reverse_proxy={{upstreams 2368}}"
+        - "caddy.0_reverse_proxy=@blog {{upstreams 2368}}"
     networks: [default, caddy]
 
   mysql:
