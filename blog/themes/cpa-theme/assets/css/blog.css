@@ -1,0 +1,347 @@
+/* ============================================================
+   CPA · Blog · estilos específicos
+   Herda paleta, fontes, masthead e footer de /shared/cpa-base.css.
+   Este arquivo contém só o que é exclusivo do blog: lista de cards,
+   corpo de post, página de autora, paginação.
+   ============================================================ */
+
+/* ============================================================
+   HERO DO BLOG (lista de posts)
+   ============================================================ */
+
+.blog-hero {
+  padding: clamp(40px, 7vw, 100px) 0 clamp(28px, 4vw, 56px);
+}
+.blog-hero__title {
+  font-family: var(--display);
+  font-weight: 380;
+  font-size: clamp(40px, 6vw, 88px);
+  line-height: 0.96;
+  letter-spacing: -0.025em;
+  margin: clamp(16px, 2vw, 24px) 0 clamp(20px, 3vw, 32px);
+  max-width: 14ch;
+}
+.blog-hero__lede {
+  font-family: var(--display);
+  font-size: clamp(17px, 1.4vw, 21px);
+  line-height: 1.5;
+  color: var(--ink-soft);
+  max-width: 56ch;
+}
+
+/* ============================================================
+   GRID DE POSTS
+   ============================================================ */
+
+.post-list {
+  border-top: 2px solid var(--ink);
+  padding: clamp(40px, 6vw, 88px) 0 clamp(56px, 8vw, 120px);
+}
+
+.post-grid {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(24px, 3vw, 48px);
+  padding: 0;
+  margin: 0;
+}
+
+.post-card {
+  border-top: 2px solid var(--ink);
+  padding-top: 18px;
+}
+
+.post-card__link {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  border-bottom: 0;
+  color: inherit;
+}
+.post-card__link:hover .post-card__title { color: var(--oxblood); }
+.post-card__link:hover .post-card__more::after { transform: translateX(6px); }
+
+.post-card__meta {
+  font-family: var(--mono);
+  font-size: 11.5px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+}
+.post-card__meta b { color: var(--oxblood); font-weight: 500; }
+
+.post-card__title {
+  font-family: var(--display);
+  font-weight: 460;
+  font-size: clamp(22px, 2vw, 28px);
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+  transition: color 240ms ease;
+}
+
+.post-card__excerpt {
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: var(--ink-soft);
+}
+
+.post-card__more {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink);
+  margin-top: 4px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.post-card__more::after {
+  content: "→";
+  display: inline-block;
+  transition: transform 260ms ease;
+}
+
+.post-empty {
+  font-family: var(--mono);
+  font-size: 13px;
+  color: var(--ink-mute);
+  padding: 32px 0;
+}
+
+@media (max-width: 1000px) {
+  .post-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 640px) {
+  .post-grid { grid-template-columns: 1fr; }
+}
+
+/* ============================================================
+   PAGINAÇÃO (Ghost gera <nav class="pagination">)
+   ============================================================ */
+
+.pagination {
+  margin-top: clamp(40px, 5vw, 64px);
+  padding-top: 24px;
+  border-top: var(--rule);
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+}
+.pagination a { color: var(--ink); }
+.pagination a:hover { color: var(--oxblood); }
+
+/* ============================================================
+   POST (página individual)
+   ============================================================ */
+
+.post {
+  padding: clamp(40px, 6vw, 88px) 0 clamp(56px, 8vw, 120px);
+}
+
+.post__head {
+  max-width: 38em;
+  margin: 0 auto clamp(32px, 4vw, 56px);
+}
+
+.post__title {
+  font-family: var(--display);
+  font-weight: 380;
+  font-size: clamp(36px, 5.5vw, 80px);
+  line-height: 1.02;
+  letter-spacing: -0.025em;
+  margin: clamp(14px, 2vw, 22px) 0 clamp(18px, 2.5vw, 28px);
+}
+.post__title em { color: var(--oxblood); font-weight: 420; }
+
+.post__meta {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: baseline;
+}
+.post__meta b { color: var(--oxblood); font-weight: 500; }
+.post__meta-sep { color: var(--gold); }
+.post__meta a { border-bottom: 0; color: var(--ink); }
+.post__meta a:hover { color: var(--oxblood); }
+
+.post__hero {
+  max-width: var(--max);
+  margin: 0 auto clamp(32px, 4vw, 56px);
+}
+.post__hero img {
+  width: 100%;
+  height: auto;
+  border-radius: 2px;
+}
+.post__hero figcaption {
+  font-family: var(--mono);
+  font-size: 11.5px;
+  letter-spacing: 0.04em;
+  color: var(--ink-mute);
+  margin-top: 8px;
+  text-align: center;
+}
+
+/* corpo do post */
+
+.post__body {
+  max-width: 38em;
+  margin: 0 auto;
+  font-size: clamp(16px, 1.1vw, 18px);
+  line-height: 1.7;
+  color: var(--ink-soft);
+}
+
+.post__body > * + * { margin-top: 1.2em; }
+.post__body h2,
+.post__body h3,
+.post__body h4 {
+  font-family: var(--display);
+  color: var(--ink);
+  letter-spacing: -0.015em;
+  line-height: 1.2;
+}
+.post__body h2 {
+  font-size: clamp(24px, 2.5vw, 32px);
+  font-weight: 460;
+  margin-top: 1.8em;
+  padding-top: 0.8em;
+  border-top: var(--rule);
+}
+.post__body h3 { font-size: clamp(20px, 1.8vw, 24px); font-weight: 460; margin-top: 1.6em; }
+.post__body h4 { font-size: clamp(17px, 1.4vw, 20px); font-weight: 500; margin-top: 1.4em; }
+
+.post__body p strong { color: var(--ink); font-weight: 600; }
+.post__body p em { color: var(--oxblood); }
+
+.post__body a {
+  color: var(--oxblood);
+  border-bottom-color: color-mix(in srgb, var(--oxblood) 35%, transparent);
+}
+
+.post__body blockquote {
+  border-left: 3px solid var(--oxblood);
+  padding: 4px 0 4px 22px;
+  margin: 1.4em 0;
+  font-family: var(--display);
+  font-size: 1.1em;
+  font-weight: 380;
+  color: var(--ink);
+}
+
+.post__body code {
+  font-family: var(--mono);
+  font-size: 0.9em;
+  background: var(--paper-warm);
+  padding: 1px 6px;
+  border-radius: 2px;
+  color: var(--ink);
+  border: 1px solid color-mix(in srgb, var(--ink) 10%, transparent);
+}
+.post__body pre {
+  font-family: var(--mono);
+  font-size: 13.5px;
+  line-height: 1.6;
+  background: var(--paper-warm);
+  border-left: 3px solid var(--oxblood);
+  padding: 16px 20px;
+  overflow-x: auto;
+  margin: 1.4em 0;
+}
+.post__body pre code { background: none; border: 0; padding: 0; }
+
+.post__body ul,
+.post__body ol {
+  margin-left: 1.4em;
+}
+.post__body li { margin-bottom: 0.5em; }
+.post__body li::marker { color: var(--oxblood); }
+
+.post__body img {
+  width: 100%;
+  height: auto;
+  border-radius: 2px;
+  margin: 1.6em 0;
+}
+
+.post__body hr {
+  border: 0;
+  border-top: var(--rule-gold);
+  margin: clamp(28px, 4vw, 48px) 0;
+}
+
+/* ============================================================
+   BLOCO AUTORA (rodapé do post)
+   ============================================================ */
+
+.post__author {
+  max-width: 38em;
+  margin: clamp(48px, 6vw, 80px) auto 0;
+  padding-top: clamp(28px, 4vw, 48px);
+  border-top: 2px solid var(--ink);
+}
+.post__author-eyebrow {
+  font-family: var(--mono);
+  font-size: 11.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--oxblood);
+  margin-bottom: 10px;
+}
+.post__author-name {
+  font-family: var(--display);
+  font-weight: 460;
+  font-size: clamp(22px, 2vw, 28px);
+  letter-spacing: -0.015em;
+  margin-bottom: 10px;
+  color: var(--ink);
+}
+.post__author-bio {
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--ink-soft);
+  margin-bottom: 12px;
+}
+.post__author-more {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.post__author-more a { border-bottom: 0; color: var(--oxblood); }
+
+/* ============================================================
+   PÁGINA DE AUTORA
+   ============================================================ */
+
+.author-hero {
+  padding: clamp(40px, 7vw, 100px) 0 clamp(28px, 4vw, 56px);
+}
+.author-hero__name {
+  font-family: var(--display);
+  font-weight: 460;
+  font-size: clamp(36px, 5vw, 64px);
+  line-height: 1;
+  letter-spacing: -0.025em;
+  margin: clamp(16px, 2vw, 24px) 0 clamp(16px, 2vw, 24px);
+}
+.author-hero__bio {
+  font-family: var(--display);
+  font-size: clamp(16px, 1.3vw, 19px);
+  line-height: 1.55;
+  color: var(--ink-soft);
+  max-width: 50ch;
+}

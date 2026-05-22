@@ -1,0 +1,54 @@
+{{!< default}}
+
+<article class="post">
+  <div class="shell">
+
+    <header class="post__head">
+      <p class="eyebrow"><a class="section-link" href="/blog">§ <b>Post</b></a></p>
+      <h1 class="post__title">{{title}}</h1>
+
+      <p class="post__meta">
+        {{#if primary_author}}
+          por <b>{{primary_author.name}}</b>
+        {{/if}}
+        <span class="post__meta-sep">·</span>
+        <time datetime="{{date format="YYYY-MM-DD"}}">{{date format="DD MMM YYYY"}}</time>
+        {{#if reading_time}}
+          <span class="post__meta-sep">·</span>
+          {{reading_time}}
+        {{/if}}
+        {{#if primary_tag}}
+          <span class="post__meta-sep">·</span>
+          <a href="{{primary_tag.url}}">{{primary_tag.name}}</a>
+        {{/if}}
+      </p>
+    </header>
+
+    {{#if feature_image}}
+      <figure class="post__hero">
+        <img src="{{feature_image}}" alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}">
+        {{#if feature_image_caption}}
+          <figcaption>{{{feature_image_caption}}}</figcaption>
+        {{/if}}
+      </figure>
+    {{/if}}
+
+    <div class="post__body">
+      {{content}}
+    </div>
+
+    {{#if primary_author}}
+      <aside class="post__author">
+        <p class="post__author-eyebrow">Sobre quem escreveu</p>
+        <h2 class="post__author-name">{{primary_author.name}}</h2>
+        {{#if primary_author.bio}}
+          <p class="post__author-bio">{{primary_author.bio}}</p>
+        {{/if}}
+        <p class="post__author-more">
+          <a href="{{primary_author.url}}">ver outros posts desta autora →</a>
+        </p>
+      </aside>
+    {{/if}}
+
+  </div>
+</article>

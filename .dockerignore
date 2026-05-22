@@ -8,3 +8,6 @@ deploy.sh
 deploy-server.js
 docker-compose.yml
 CLAUDE.md
+blog/
+nextcloud/
+IDENTIDADE.md

@@ -25,7 +25,7 @@ perguntar antes de aplicar.
 - Estética de jornal/zine: réguas finas, eyebrow mono em caixa-alta,
   numeração de seção com `§`, drop cap no primeiro parágrafo de bloco
   longo.
-- Tipografia com personalidade (Fraunces variável), mas sem ornamento.
+- Tipografia legível por padrão (Atkinson Hyperlegible no corpo, Lexend nos títulos), sem ornamento.
 - Vermelho oxblood + dourado antigo como sinalizadores políticos, nunca
   decorativos.
 
@@ -517,20 +517,49 @@ Coisas que **não fazer**, listadas para não esquecer:
 
 ---
 
-## 11 · Arquivo único
+## 11 · Assets compartilhados (`/shared/`)
 
-Site é **single-file** (`index.html`) com CSS embutido. Sem build step,
-sem framework. JS mínimo (toggle de tema). Fontes via Google Fonts.
+A identidade visual mora em `shared/`, servida pelo nginx em
+`/shared/*`. Todas as superfícies (homepage, identidade, blog) usam o
+mesmo arquivo, não cópia.
 
-Ao crescer, manter:
-- CSS embutido na mesma `<style>` no topo (não fragmentar em arquivos
-  externos sem revisão).
-- Tokens em `:root` sempre primeiros.
-- Comentários de seção em banner ASCII (`/* === NOME === */`) para
-  facilitar navegação.
+| Arquivo | O que tem | Quem referencia |
+|---|---|---|
+| `shared/cpa-base.css` | Tokens (`:root`), tema escuro, body, masthead, eyebrow, footer cry, reveal, focus | `index.html`, `identidade.html`, tema `cpa-theme` do blog |
+| `shared/cpa-home.css` | Layouts da home (`.hero*`, `.standfirst`, `.pullquote`, `.participar`, `.ingresso`, `.funciona`, `.regras`, `.sensorial`, `.contato`) | só `index.html` |
+| `shared/cpa.js` | Toggle de tema (claro/escuro) | todas |
 
-Para preview local:
+Mudar paleta = mudar `cpa-base.css`. Reflete em todo lugar simultaneamente.
+
+Tokens em `:root` continuam vindo primeiro. Comentários de seção em
+banner ASCII (`/* === NOME === */`) para facilitar navegação.
+
+## 12 · Blog (`/blog`)
+
+Subpath em `coletivopopularautista.com.br/blog`. Framework: **Ghost 5**
+com tema custom `cpa-theme` (Handlebars). Mesma identidade do site.
+
+- Stack separada em `blog/` (docker-compose próprio, Caddy roteia
+  `/blog*` para Ghost via matcher, sem strip-ar prefixo).
+- Tema `cpa-theme` referencia `/shared/cpa-base.css` por URL absoluta:
+  navegador busca no nginx, não duplica.
+- CSS exclusivo do blog (cards, post body, autora) fica em
+  `blog/themes/cpa-theme/assets/css/blog.css`.
+- Painel admin: `/blog/ghost`.
+
+Ver `blog/README.md` para deploy e bootstrap.
+
+## 13 · Preview local
 
 ```
 python3 -m http.server 8765
 ```
+
+Site abre em `http://localhost:8765/`. Identidade em `/identidade.html`.
+Para preview do blog, rodar a stack `blog/` localmente:
+
+```
+cd blog && docker compose up -d
+```
+
+Ghost wizard em `http://localhost:2368/ghost` (mapear porta em dev).

@@ -1,0 +1,46 @@
+{{!< default}}
+
+<section class="blog-hero">
+  <div class="shell">
+    <p class="eyebrow"><a class="section-link" href="/blog">§ <b>Blog do CPA</b></a></p>
+    <h1 class="blog-hero__title">
+      Escritos do <em>coletivo</em>.
+    </h1>
+    <p class="blog-hero__lede">
+      Textos de autoras do CPA: análise política, relatos, cuidado sensorial,
+      cultura, formação. Conteúdo escrito por autistas, para autistas e aliades.
+    </p>
+  </div>
+</section>
+
+<section class="post-list">
+  <div class="shell">
+    {{#if posts}}
+      <ul class="post-grid">
+        {{#foreach posts}}
+          <li class="post-card">
+            <a class="post-card__link" href="{{url}}">
+              <p class="post-card__meta">
+                <time datetime="{{date format="YYYY-MM-DD"}}">{{date format="DD MMM YYYY"}}</time>
+                {{#if primary_author}}
+                  · por <b>{{primary_author.name}}</b>
+                {{/if}}
+              </p>
+              <h2 class="post-card__title">{{title}}</h2>
+              {{#if custom_excerpt}}
+                <p class="post-card__excerpt">{{custom_excerpt}}</p>
+              {{else}}
+                <p class="post-card__excerpt">{{excerpt words="36"}}</p>
+              {{/if}}
+              <span class="post-card__more">ler post →</span>
+            </a>
+          </li>
+        {{/foreach}}
+      </ul>
+
+      {{pagination}}
+    {{else}}
+      <p class="post-empty">Ainda não há posts publicados. Volte em breve.</p>
+    {{/if}}
+  </div>
+</section>

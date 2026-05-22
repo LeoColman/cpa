@@ -1,0 +1,75 @@
+# Blog do CPA · subpath /blog em ${CPA_HOST}
+#
+# Stack separada do site (lifecycle independente).
+# Caddy reverse-proxy externo capta as rotas /blog* via matcher.
+# Ghost com url=https://${CPA_HOST}/blog — não pode strip-ar o prefixo.
+#
+# Usage:
+#   bash deploy.sh
+#
+# Bootstrap:
+#   1) docker stack deploy (este compose).
+#   2) Abrir https://${CPA_HOST}/blog/ghost — Ghost roda wizard, cria Owner.
+#   3) Painel → Design → Activate cpa-theme.
+
+services:
+  ghost:
+    image: ghost:5-alpine
+    environment:
+      NODE_ENV: production
+      url: "https://${CPA_HOST}/blog"
+      database__client: mysql
+      database__connection__host: mysql
+      database__connection__user: "${MYSQL_USER}"
+      database__connection__password: "${MYSQL_PASSWORD}"
+      database__connection__database: "${MYSQL_DATABASE}"
+      mail__from: "${MAIL_FROM}"
+      mail__transport: Direct
+    volumes:
+      - ghost_content:/var/lib/ghost/content
+      - type: bind
+        source: ./themes/cpa-theme
+        target: /var/lib/ghost/content/themes/cpa-theme
+    depends_on: [mysql]
+    deploy:
+      replicas: 1
+      placement: { constraints: [node.role == manager] }
+      restart_policy: { condition: any, delay: 5s }
+      labels:
+        - "caddy=${CPA_HOST}"
+        - "caddy.@blog.path=/blog /blog/*"
+        - "caddy.handle.@blog.reverse_proxy={{upstreams 2368}}"
+    networks: [default, caddy]
+
+  mysql:
+    image: mysql:8
+    command:
+      - "--default-authentication-plugin=mysql_native_password"
+      - "--character-set-server=utf8mb4"
+      - "--collation-server=utf8mb4_unicode_ci"
+    environment:
+      MYSQL_ROOT_PASSWORD: "${MYSQL_ROOT_PASSWORD}"
+      MYSQL_DATABASE: "${MYSQL_DATABASE}"
+      MYSQL_USER: "${MYSQL_USER}"
+      MYSQL_PASSWORD: "${MYSQL_PASSWORD}"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-uroot", "-p${MYSQL_ROOT_PASSWORD}"]
+      interval: 15s
+      timeout: 5s
+      retries: 6
+      start_period: 30s
+    deploy:
+      replicas: 1
+      placement: { constraints: [node.role == manager] }
+      restart_policy: { condition: on-failure, delay: 5s }
+
+volumes:
+  ghost_content:
+  mysql_data:
+
+networks:
+  default:
+  caddy:
+    external: true

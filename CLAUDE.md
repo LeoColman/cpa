@@ -104,9 +104,18 @@ En-dash (U+2013) também não. Hífen comum (`-`) só onde for hífen mesmo
 
 ## Pilha técnica
 
-Site estático. HTML + CSS embutido + JS mínimo. Sem build step. Sem
-framework. Single-file `index.html` por enquanto. Fontes via Google Fonts
-(Fraunces, Instrument Sans, JetBrains Mono).
+Site estático. HTML + CSS externo em `shared/` + JS mínimo. Sem build
+step. Sem framework. Páginas servidas por nginx via Docker Swarm.
+Fontes via Google Fonts (Atkinson Hyperlegible, Lexend, JetBrains Mono).
+
+Identidade visual compartilhada (`/shared/cpa-base.css`, `cpa-home.css`,
+`cpa.js`) é **single source of truth** — homepage, identidade e blog
+referenciam por URL absoluta, não copiam. Ver `IDENTIDADE.md` §11-12.
+
+Blog em `coletivopopularautista.com.br/blog` (subpath). Stack
+independente em `blog/` (Ghost 5 + MySQL 8). Caddy roteia `/blog*` via
+matcher de path sem strip-ar prefixo. Tema `cpa-theme` reusa
+`/shared/cpa-base.css`. Ver `blog/README.md`.
 
 Para preview local:
 ```

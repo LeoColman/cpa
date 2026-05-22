@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>(function(){var s=localStorage.getItem('cpa-theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.dataset.theme=s;}());</script>
+<title>{{meta_title}}</title>
+<meta name="description" content="{{meta_description}}">
+<meta name="theme-color" content="#EFE9DC">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+{{#is "post"}}
+  <meta property="og:title" content="{{title}}">
+  <meta property="og:description" content="{{excerpt}}">
+  <meta property="og:type" content="article">
+{{else}}
+  <meta property="og:title" content="{{meta_title}}">
+  <meta property="og:description" content="Blog do Coletivo Popular Autista">
+  <meta property="og:type" content="website">
+{{/is}}
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&family=Lexend:wght@300..700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="/shared/cpa-base.css">
+<link rel="stylesheet" href="{{asset "css/blog.css"}}">
+
+{{ghost_head}}
+</head>
+<body class="{{body_class}}">
+
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+
+<header class="masthead">
+  <div class="shell">
+    <div class="masthead__rule masthead__rule--thick"></div>
+    <div class="masthead__rule"></div>
+
+    <div class="masthead__row">
+      <a href="/" class="brand" aria-label="CPA · início">
+        <svg class="brand__mark" viewBox="0 0 24 24" aria-hidden="true">
+          <path class="star-outline" d="M12 0.6 L14.9 8.5 L23.2 9.1 L16.7 14.7 L18.7 22.9 L12 18.2 L5.3 22.6 L7.2 14.5 L0.8 9.1 L9.1 8.5 Z" />
+        </svg>
+        <span class="brand__word">
+          Coletivo Popular Autista
+          <small>Blog · Ano I</small>
+        </span>
+      </a>
+
+      <nav class="masthead__nav" aria-label="Navegação principal">
+        <a href="/">Site</a>
+        <a href="/blog">Blog</a>
+        <a href="/#participar">Participar</a>
+        <a href="/#contato">Contato</a>
+      </nav>
+
+      <div class="masthead__meta">
+        Blog do <b>CPA</b><br>
+        Boletim aberto · Brasil<br>
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-live="polite"></button>
+      </div>
+    </div>
+
+    <div class="masthead__rule"></div>
+  </div>
+</header>
+
+<main id="conteudo">
+{{{body}}}
+</main>
+
+<footer class="cry">
+  <div class="shell">
+    <p class="cry__shout">
+      Solidariedade <em>neurodivergente</em>.<br>
+      Luta de <u>classe</u>.
+    </p>
+
+    <div class="cry__cols">
+      <div class="cry__col">
+        <h4>Coletivo</h4>
+        <ul>
+          <li><a href="/#manifesto">Manifesto</a></li>
+          <li><a href="/#participar">Participar</a></li>
+          <li><a href="/#regras">Regras</a></li>
+        </ul>
+      </div>
+      <div class="cry__col">
+        <h4>Blog</h4>
+        <ul>
+          <li><a href="/blog">Posts</a></li>
+          <li><a href="/blog/rss/">RSS</a></li>
+        </ul>
+      </div>
+      <div class="cry__col">
+        <h4>Acesso</h4>
+        <ul>
+          <li><a href="/#sensorial">Cuidado sensorial</a></li>
+          <li><a href="mailto:acessibilidade@coletivopopularautista.com.br">Relatar barreira</a></li>
+        </ul>
+      </div>
+      <div class="cry__col">
+        <h4>Princípio</h4>
+        <p>Este blog foi feito por autistas, <b>para autistas</b>.</p>
+      </div>
+    </div>
+
+    <div class="cry__base">
+      <span>CPA · Ano <b>I</b> · Edição <b>I</b></span>
+      <span>Conteúdo sob <b>CC BY-SA 4.0</b></span>
+      <span>Feito com cuidado, <b>sem pressa</b></span>
+    </div>
+  </div>
+</footer>
+
+<script src="/shared/cpa.js" defer></script>
+{{ghost_foot}}
+</body>
+</html>

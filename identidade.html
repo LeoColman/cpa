@@ -12,201 +12,57 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..900,0..100,0..1;1,9..144,300..900,0..100,0..1&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&family=Lexend:wght@300..700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 
-<style>
-:root {
-  --paper:        #EFE9DC;
-  --paper-warm:   #E8E0CD;
-  --paper-deep:   #DDD3BC;
-  --ink:          #1A1814;
-  --ink-soft:     #3A332A;
-  --ink-mute:     #6A5F50;
-  --oxblood:      #8C2A2A;
-  --oxblood-deep: #6B1F1F;
-  --gold:         #A88341;
-  --gold-soft:    #C9A968;
-  --rule: 1px solid color-mix(in srgb, var(--ink) 18%, transparent);
-  --rule-gold: 1px solid color-mix(in srgb, var(--gold) 45%, transparent);
-  --display: "Fraunces", "Times New Roman", Georgia, serif;
-  --body:    "Instrument Sans", -apple-system, BlinkMacSystemFont, sans-serif;
-  --mono:    "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
-  --gutter: clamp(20px, 4vw, 56px);
-  --max:    1080px;
-}
+<link rel="stylesheet" href="/shared/cpa-base.css">
 
-[data-theme="dark"] {
-  --paper:        #1E1A15;
-  --paper-warm:   #241F18;
-  --paper-deep:   #141009;
-  --ink:          #E6DFD0;
-  --ink-soft:     #B5ADA0;
-  --ink-mute:     #786E5E;
-  --oxblood:      #B03535;
-  --oxblood-deep: #8C2A2A;
-  --gold:         #C9A968;
-  --gold-soft:    #A88341;
-}
-[data-theme="dark"] body::before {
-  mix-blend-mode: screen;
-  opacity: 0.08;
-}
+<style id="identidade-doc-overrides-keep">
+/* Identidade visual: overrides locais sobre /shared/cpa-base.css.
+   Identidade é mais densa e estreita que a home, e não usa nav. */
 
-* { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
-
-@media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
-  *, *::before, *::after {
-    animation-duration: 0.001ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.001ms !important;
-  }
-}
-
-body {
-  background: var(--paper);
-  color: var(--ink);
-  font-family: var(--body);
-  font-size: clamp(15px, 1.05vw, 17px);
-  line-height: 1.65;
-  font-feature-settings: "ss01", "kern", "liga";
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
-  overflow-x: hidden;
-}
-
-body::before {
-  content: "";
-  position: fixed; inset: 0;
-  pointer-events: none;
-  z-index: 1;
-  opacity: 0.35;
-  mix-blend-mode: multiply;
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.15  0 0 0 0 0.13  0 0 0 0 0.10  0 0 0 0.18 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
-}
-
-::selection { background: var(--oxblood); color: var(--paper); }
-
-a {
-  color: inherit;
-  text-decoration: none;
-  border-bottom: 1px solid color-mix(in srgb, var(--ink) 35%, transparent);
-  transition: border-color 240ms ease, color 240ms ease;
-}
-a:hover { border-bottom-color: var(--oxblood); color: var(--oxblood); }
-
-*:focus-visible {
-  outline: 2px solid var(--oxblood);
-  outline-offset: 3px;
-  border-radius: 1px;
-}
-
-/* ===== layout ===== */
-
-.shell {
-  max-width: var(--max);
-  margin: 0 auto;
-  padding: 0 var(--gutter);
-  position: relative;
-  z-index: 2;
-}
+:root { --max: 1080px; }
+body { line-height: 1.65; }
 
 .masthead {
   padding: clamp(32px, 5vw, 64px) 0 clamp(20px, 3vw, 40px);
+  padding-top: 0;
   border-bottom: var(--rule-gold);
   margin-bottom: clamp(40px, 6vw, 80px);
 }
-.masthead__rule {
-  border-top: 2px solid var(--ink);
-  margin-bottom: 14px;
-}
+.masthead__rule { border-top: 2px solid var(--ink); margin: 0 0 14px; }
 .masthead__row {
   display: flex;
+  grid-template-columns: none;
   align-items: baseline;
   justify-content: space-between;
-  gap: clamp(16px, 3vw, 40px);
   flex-wrap: wrap;
 }
-.brand {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  border-bottom: 0;
-}
-.brand__mark { width: 24px; height: 24px; flex-shrink: 0; }
-.brand__mark .star-outline { stroke: var(--gold); stroke-width: 0.6; fill: var(--oxblood); }
-.brand__word {
-  font-family: var(--display);
-  font-variation-settings: "opsz" 80, "SOFT" 60;
-  font-weight: 600;
-  font-size: clamp(15px, 1.3vw, 18px);
-  letter-spacing: -0.01em;
-  line-height: 1.1;
-}
-.brand__word small {
-  display: block;
-  font-family: var(--mono);
-  font-size: 10.5px;
-  font-weight: 400;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--ink-mute);
-  margin-top: 2px;
-}
-
+.brand__mark { width: 24px; height: 24px; }
+.brand__word { font-size: clamp(15px, 1.3vw, 18px); }
 .eyebrow {
-  font-family: var(--mono);
   font-size: 11.5px;
   letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--ink-mute);
+  display: inline;
 }
-.eyebrow b { color: var(--oxblood); font-weight: 500; }
+.eyebrow::before { content: none; }
+.theme-toggle { margin-top: 0; }
 
-.theme-toggle {
-  font-family: var(--mono);
-  font-size: 10.5px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--ink-mute);
-  background: none;
-  border: 1px solid color-mix(in srgb, var(--ink) 18%, transparent);
-  border-radius: 2px;
-  padding: 3px 7px;
-  cursor: pointer;
-  transition: color 220ms ease, border-color 220ms ease;
-}
-.theme-toggle:hover {
-  color: var(--ink);
-  border-color: color-mix(in srgb, var(--ink) 38%, transparent);
-}
+/* ===== doc =====  */
 
-.doc {
-  max-width: 75ch;
-}
+.doc { max-width: 75ch; }
 
-.doc__hero {
-  margin-bottom: clamp(40px, 5vw, 64px);
-}
+.doc__hero { margin-bottom: clamp(40px, 5vw, 64px); }
 .doc__title {
   font-family: var(--display);
-  font-variation-settings: "opsz" 144, "SOFT" 80, "WONK" 1;
   font-weight: 460;
   font-size: clamp(40px, 6vw, 76px);
   line-height: 0.95;
   letter-spacing: -0.025em;
   margin: 18px 0 24px;
 }
-.doc__title em {
-  font-style: italic;
-  color: var(--oxblood);
-  font-variation-settings: "opsz" 144, "SOFT" 100, "WONK" 1;
-  font-weight: 420;
-}
+.doc__title em { color: var(--oxblood); font-weight: 420; }
 .doc__lede {
   font-family: var(--display);
-  font-variation-settings: "opsz" 24, "SOFT" 50;
   font-size: clamp(17px, 1.4vw, 20px);
   line-height: 1.55;
   color: var(--ink-soft);
@@ -214,11 +70,8 @@ a:hover { border-bottom-color: var(--oxblood); color: var(--oxblood); }
 }
 .doc__lede a { color: var(--oxblood); border-bottom-color: color-mix(in srgb, var(--oxblood) 35%, transparent); }
 
-/* ===== typography ===== */
-
 .doc h2 {
   font-family: var(--display);
-  font-variation-settings: "opsz" 72, "SOFT" 60, "WONK" 0;
   font-weight: 400;
   font-size: clamp(28px, 3.2vw, 40px);
   line-height: 1.05;
@@ -237,13 +90,11 @@ a:hover { border-bottom-color: var(--oxblood); color: var(--oxblood); }
   display: block;
   margin-bottom: 14px;
   font-weight: 500;
-  font-style: normal;
 }
-.doc h2 .num::before { content: "§ "; color: var(--oxblood); font-family: var(--display); font-style: italic; }
+.doc h2 .num::before { content: "§ "; color: var(--oxblood); font-family: var(--display); }
 
 .doc h3 {
   font-family: var(--display);
-  font-variation-settings: "opsz" 36, "SOFT" 70, "WONK" 0;
   font-weight: 460;
   font-size: clamp(20px, 1.7vw, 26px);
   line-height: 1.2;
@@ -251,7 +102,7 @@ a:hover { border-bottom-color: var(--oxblood); color: var(--oxblood); }
   margin: clamp(32px, 3.5vw, 48px) 0 12px;
   color: var(--ink);
 }
-.doc h3 em { font-style: italic; color: var(--oxblood); font-variation-settings: "opsz" 36, "SOFT" 100, "WONK" 1; }
+.doc h3 em { color: var(--oxblood); }
 
 .doc h4 {
   font-family: var(--mono);
@@ -266,13 +117,11 @@ a:hover { border-bottom-color: var(--oxblood); color: var(--oxblood); }
 .doc p { margin: 0 0 1em; color: var(--ink-soft); }
 .doc p:last-child { margin-bottom: 0; }
 .doc p strong, .doc li strong { color: var(--ink); font-weight: 600; }
-.doc p em { font-style: italic; color: var(--oxblood); }
+.doc p em { color: var(--oxblood); }
 
 .doc ul, .doc ol { margin: 0 0 1.2em 1.4em; color: var(--ink-soft); }
 .doc li { margin-bottom: 0.5em; line-height: 1.6; }
 .doc li::marker { color: var(--oxblood); }
-
-/* ===== code ===== */
 
 .doc code {
   font-family: var(--mono);
@@ -294,15 +143,7 @@ a:hover { border-bottom-color: var(--oxblood); color: var(--oxblood); }
   overflow-x: auto;
   color: var(--ink);
 }
-.doc pre code {
-  background: none;
-  border: 0;
-  padding: 0;
-  font-size: inherit;
-  color: inherit;
-}
-
-/* ===== tables ===== */
+.doc pre code { background: none; border: 0; padding: 0; font-size: inherit; color: inherit; }
 
 .doc__table-wrap { overflow-x: auto; margin: 0 0 1.6em; }
 .doc table {
@@ -340,8 +181,6 @@ a:hover { border-bottom-color: var(--oxblood); color: var(--oxblood); }
   border: 1px solid color-mix(in srgb, var(--ink) 25%, transparent);
 }
 
-/* ===== misc ===== */
-
 .callout {
   border-left: 3px solid var(--gold);
   background: var(--paper-warm);
@@ -354,11 +193,7 @@ a:hover { border-bottom-color: var(--oxblood); color: var(--oxblood); }
 }
 .callout b { color: var(--oxblood); font-weight: 500; }
 
-hr {
-  border: 0;
-  border-top: var(--rule-gold);
-  margin: clamp(40px, 5vw, 64px) 0;
-}
+hr { border: 0; border-top: var(--rule-gold); margin: clamp(40px, 5vw, 64px) 0; }
 
 .foot {
   margin-top: clamp(80px, 10vw, 160px);
@@ -376,6 +211,7 @@ hr {
 }
 .foot b { color: var(--oxblood); font-weight: 500; }
 </style>
+
 </head>
 <body>
 
@@ -432,7 +268,7 @@ hr {
 <h3>Boletim de esquerda</h3>
 <ul>
   <li>Estética de jornal/zine: réguas finas, eyebrow mono em caixa-alta, numeração de seção com <code>§</code>, drop cap no primeiro parágrafo de bloco longo.</li>
-  <li>Tipografia com personalidade (Fraunces variável), mas sem ornamento.</li>
+  <li>Tipografia legível por padrão (Atkinson Hyperlegible no corpo, Lexend nos títulos), sem ornamento.</li>
   <li>Vermelho oxblood e dourado antigo como sinalizadores políticos, nunca decorativos.</li>
 </ul>
 
@@ -468,7 +304,7 @@ hr {
     <tr><td><code>--ink</code></td><td><span class="swatch" style="background:#1A1814"></span><code>#1A1814</code></td><td>texto principal, fundos escuros (pullquote, contato, footer)</td></tr>
     <tr><td><code>--ink-soft</code></td><td><span class="swatch" style="background:#3A332A"></span><code>#3A332A</code></td><td>corpo de texto secundário</td></tr>
     <tr><td><code>--ink-mute</code></td><td><span class="swatch" style="background:#6A5F50"></span><code>#6A5F50</code></td><td>metadados, eyebrows neutros</td></tr>
-    <tr><td><code>--oxblood</code></td><td><span class="swatch" style="background:#8C2A2A"></span><code>#8C2A2A</code></td><td>acento político (italic, §, hover)</td></tr>
+    <tr><td><code>--oxblood</code></td><td><span class="swatch" style="background:#8C2A2A"></span><code>#8C2A2A</code></td><td>acento político (ênfase, §, hover)</td></tr>
     <tr><td><code>--oxblood-deep</code></td><td><span class="swatch" style="background:#6B1F1F"></span><code>#6B1F1F</code></td><td>reserva (variação)</td></tr>
     <tr><td><code>--gold</code></td><td><span class="swatch" style="background:#A88341"></span><code>#A88341</code></td><td>réguas, contornos de detalhe</td></tr>
     <tr><td><code>--gold-soft</code></td><td><span class="swatch" style="background:#C9A968"></span><code>#C9A968</code></td><td>acento sobre fundo escuro</td></tr>
@@ -537,38 +373,44 @@ hr {
 <table>
   <thead><tr><th>Token</th><th>Família</th><th>Função</th></tr></thead>
   <tbody>
-    <tr><td><code>--display</code></td><td>Fraunces (variável: opsz, wght, SOFT, WONK)</td><td>títulos, citações, ênfases</td></tr>
-    <tr><td><code>--body</code></td><td>Instrument Sans</td><td>texto corrido</td></tr>
+    <tr><td><code>--display</code></td><td>Lexend (variável: wght)</td><td>títulos, citações, ênfases</td></tr>
+    <tr><td><code>--body</code></td><td>Atkinson Hyperlegible</td><td>texto corrido (dislexia-friendly)</td></tr>
     <tr><td><code>--mono</code></td><td>JetBrains Mono</td><td>eyebrows, créditos, metadados</td></tr>
   </tbody>
 </table>
 </div>
 
 <p>
-  Fontes via Google Fonts. <strong>Fraunces é variável</strong>: usar
-  <code>font-variation-settings</code> para controle fino, não pesos
-  discretos.
+  Fontes via Google Fonts. Escolha guiada por legibilidade
+  (anti-capacitismo cognitivo): <strong>Atkinson Hyperlegible</strong>
+  no corpo distingue caracteres ambíguos (0/O, 1/l/I, b/d) e foi
+  desenhada pelo Braille Institute. <strong>Lexend</strong> nos títulos
+  foi calibrada para fluência de leitura (estudo Shaver-Troup),
+  útil para dislexia e cargas visuais reduzidas.
 </p>
 
-<h3>Eixos variáveis da Fraunces (convenção)</h3>
+<h3>Pesos da Lexend (variável: <code>wght</code> 300-700)</h3>
 
 <div class="doc__table-wrap">
 <table>
-  <thead><tr><th>Contexto</th><th>opsz</th><th>SOFT</th><th>WONK</th><th>wght</th></tr></thead>
+  <thead><tr><th>Contexto</th><th>wght</th></tr></thead>
   <tbody>
-    <tr><td>Display gigante (hero, footer)</td><td>144</td><td>60-100</td><td>1</td><td>380-460</td></tr>
-    <tr><td>Display grande (seção, contato)</td><td>72-96</td><td>50-80</td><td>0-1</td><td>360-380</td></tr>
-    <tr><td>Display médio (nome de card)</td><td>36</td><td>70</td><td>0</td><td>460</td></tr>
-    <tr><td>Lede e textos display em corpo</td><td>24</td><td>50-60</td><td>0</td><td>400</td></tr>
-    <tr><td>Ênfase em italic (acento)</td><td>manter</td><td>100</td><td>1</td><td>manter</td></tr>
-    <tr><td>Drop cap</td><td>144</td><td>100</td><td>1</td><td>500</td></tr>
+    <tr><td>Display gigante (hero, footer, pullquote)</td><td>380-460</td></tr>
+    <tr><td>Display grande (seção, contato)</td><td>360-380</td></tr>
+    <tr><td>Display médio (nome de card)</td><td>460</td></tr>
+    <tr><td>Lede e textos display em corpo</td><td>400</td></tr>
+    <tr><td>Ênfase em <code>&lt;em&gt;</code></td><td>herda (cor oxblood)</td></tr>
+    <tr><td>Drop cap</td><td>500</td></tr>
   </tbody>
 </table>
 </div>
 
 <div class="callout">
-  Regra: <b>italic = SOFT 100 + WONK 1 + cor oxblood</b>. É a marca de
-  ênfase do projeto. Sempre nessa combinação.
+  Regra: <b>ênfase = cor oxblood, sem italic</b>. Lexend não tem
+  italic real e a oblíqua sintetizada degrada a legibilidade
+  (justamente o ganho da troca). A marca de ênfase agora é cromática,
+  não inclinada. <code>&lt;em&gt;</code> é resetado globalmente para
+  <code>font-style: normal</code>.
 </div>
 
 <h3>Escala tipográfica (clamp responsivo)</h3>
@@ -606,7 +448,7 @@ hr {
 
 <h3>Letter-spacing</h3>
 <ul>
-  <li><strong>Display</strong>: negativo (<code>-0.015em</code> a <code>-0.03em</code>). Fraunces respira sozinha.</li>
+  <li><strong>Display</strong>: negativo (<code>-0.015em</code> a <code>-0.03em</code>). Lexend já tem spacing aberto, compensar nos títulos grandes.</li>
   <li><strong>Mono eyebrow/nav</strong>: <code>0.06em</code> a <code>0.16em</code>. Caixa-alta precisa de ar.</li>
 </ul>
 
@@ -721,7 +563,6 @@ hr {
   color: var(--oxblood);
   font-family: var(--display);
   font-size: 16px;
-  font-style: italic;
 }
 .eyebrow b { color: var(--oxblood); font-weight: 500; }</code></pre>
 
@@ -761,7 +602,7 @@ hr {
   Header eyebrow + título. Corpo em <strong>duas colunas</strong>
   (<code>columns: 2</code>) com <code>column-rule: var(--rule)</code>.
   <strong>Drop cap</strong> na primeira letra do primeiro parágrafo:
-  Fraunces 144 SOFT 100 WONK 1, oxblood, <code>5.2em</code>, float
+  Lexend weight 500, oxblood, <code>5.2em</code>, float
   esquerda. Colapsa para 1 coluna em <code>720px</code>.
 </p>
 
@@ -769,9 +610,9 @@ hr {
 <p>
   Fundo <code>var(--ink)</code> (sempre escuro, independente do tema).
   Gradiente radial sutil oxblood + gold como atmosfera. Citação enorme
-  em italic Fraunces 144, palavra-chave envolta em
-  <code>&lt;span&gt;</code> ganha <code>gold-soft</code> +
-  <code>font-style: normal</code> (contra-italic). Não animar. Não
+  em Lexend weight 380, palavra-chave envolta em
+  <code>&lt;span&gt;</code> ganha cor <code>gold-soft</code> como
+  contra-acento. Não animar. Não
   introduzir estroboscópio mesmo em estado decorativo.
 </p>
 
@@ -799,7 +640,7 @@ hr {
   <code>line-height: 1.6</code>, <code>color: var(--ink-soft)</code>.
 </p>
 <p>
-  Nomes (<code>__name</code>) em Fraunces 36, weight 460,
+  Nomes (<code>__name</code>) em Lexend weight 460,
   <code>clamp(19-20px, 1.5-1.7vw, 24-26px)</code>. Em
   <code>.grupo</code> o nome ganha cor oxblood (diferenciação visual de
   grid mais denso).
@@ -850,7 +691,7 @@ hr {
 
 <h3>Footer (cry)</h3>
 <p>
-  Fundo <code>var(--ink)</code>. Brado de fechamento em Fraunces 144
+  Fundo <code>var(--ink)</code>. Brado de fechamento em Lexend weight 380
   com <code>em</code> em <code>gold-soft</code> e <code>&lt;u&gt;</code>
   com <code>text-decoration-color: oxblood</code>,
   <code>text-decoration-thickness: 4px</code>,
@@ -1043,21 +884,6 @@ hr {
   <span>Atualizado a partir de <code>IDENTIDADE.md</code></span>
 </footer>
 
-<script>
-(function () {
-  var btn = document.getElementById('theme-toggle');
-  var html = document.documentElement;
-  function apply(theme) {
-    html.dataset.theme = theme;
-    localStorage.setItem('cpa-theme', theme);
-    btn.textContent = theme === 'dark' ? '◐ tema claro' : '◑ tema escuro';
-    btn.setAttribute('aria-label', theme === 'dark' ? 'Mudar para tema claro' : 'Mudar para tema escuro');
-  }
-  apply(html.dataset.theme || 'light');
-  btn.addEventListener('click', function () {
-    apply(html.dataset.theme === 'dark' ? 'light' : 'dark');
-  });
-}());
-</script>
+<script src="/shared/cpa.js" defer></script>
 </body>
 </html>

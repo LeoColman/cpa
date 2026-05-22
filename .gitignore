@@ -1,3 +1,5 @@
 *.png
 .playwright-mcp/
 .env
+blog/.env
+nextcloud/.env
