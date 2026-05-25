@@ -20,6 +20,7 @@ services:
       SERVER_ADMIN: "${MAIL_FROM:-contato@coletivopopularautista.com.br}"
       HTTP_SERVER_NAME: "${LINKS_HOST}"
       HTTPS_SERVER_NAME: "${LINKS_HOST}"
+      BEHIND_HTTPS_PROXY: "True"
     volumes:
       - linkstack_data:/htdocs
     deploy:
