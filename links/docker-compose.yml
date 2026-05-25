@@ -21,6 +21,9 @@ services:
       HTTP_SERVER_NAME: "${LINKS_HOST}"
       HTTPS_SERVER_NAME: "${LINKS_HOST}"
       BEHIND_HTTPS_PROXY: "True"
+      APP_URL: "https://${LINKS_HOST}"
+      ASSET_URL: "https://${LINKS_HOST}"
+      FORCE_HTTPS: "true"
     volumes:
       - linkstack_data:/htdocs
     deploy:
