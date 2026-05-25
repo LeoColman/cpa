@@ -1,0 +1,40 @@
+# LinkStack do CPA · links.coletivopopularautista.com.br
+#
+# Substitui linktr.ee/colpopautista. Self-hosted, FOSS (MIT), PHP.
+# Stack separada do site e do blog (lifecycle independente).
+# Caddy reverse-proxy externo capta o serviço via label.
+#
+# Usage:
+#   bash deploy.sh
+#
+# Bootstrap:
+#   1) docker stack deploy (este compose).
+#   2) Abrir https://${LINKS_HOST} — LinkStack roda wizard de install
+#      (cria admin com email+senha, escolhe tema).
+
+services:
+  linkstack:
+    image: linkstackorg/linkstack:latest
+    environment:
+      TZ: "${TZ:-America/Sao_Paulo}"
+      SERVER_ADMIN: "${MAIL_FROM:-contato@coletivopopularautista.com.br}"
+      HTTP_SERVER_NAME: "${LINKS_HOST}"
+      HTTPS_SERVER_NAME: "${LINKS_HOST}"
+    volumes:
+      - linkstack_data:/htdocs
+    deploy:
+      replicas: 1
+      placement: { constraints: [node.role == manager] }
+      restart_policy: { condition: any, delay: 5s }
+      labels:
+        - "caddy=${LINKS_HOST}"
+        - "caddy.reverse_proxy={{upstreams 80}}"
+    networks: [default, caddy]
+
+volumes:
+  linkstack_data:
+
+networks:
+  default:
+  caddy:
+    external: true

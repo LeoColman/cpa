@@ -3,3 +3,4 @@
 .env
 blog/.env
 nextcloud/.env
+links/.env
