@@ -30,7 +30,9 @@ perguntar antes de aplicar.
   decorativos.
 
 ### 1.3 Identidade política, não diagnóstica
-- Símbolo: **estrela vermelha com contorno dourado** (leftist + autista).
+- Símbolo: **logo do CPA** (`/shared/cpa-logo.png`): bandeira
+  vermelha/preta (esquerda) + infinito arco-íris (neurodivergência) +
+  "CPA" num círculo de pincelada. Favicon: o infinito arco-íris sozinho.
 - Proibido: quebra-cabeça (Autism Speaks) e azul como símbolo de autismo.
 - Pessoa autista é sujeito político, não paciente.
 
@@ -45,6 +47,10 @@ perguntar antes de aplicar.
 
 Todas as cores vivem em `:root` como custom properties. Não introduzir
 cores fora dessa lista sem revisão.
+
+Exceção única e registrada: o logo da marca (`/shared/cpa-logo.png`) usa
+anel quase-preto e infinito arco-íris saturado. Vale só pro logo; o corpo
+do site segue a paleta suave abaixo.
 
 ### 2.1 Tema claro (padrão)
 
@@ -344,13 +350,13 @@ oxblood (`scaleX 0 → 1` em `260ms`).
 
 Marca:
 ```html
-<svg class="brand__mark" viewBox="0 0 24 24">
-  <path class="star-outline"
-        d="M12 0.6 L14.9 8.5 ..." />
-</svg>
+<img class="brand__mark" src="/shared/cpa-logo.png" alt="" width="44" height="45">
 ```
-Estrela 10 pontas **ligeiramente assimétrica** (gesto de
-neurodivergência). Fill oxblood, stroke gold `0.6`. Não simetrizar.
+Logo da marca (bandeira vermelha/preta + infinito arco-íris + "CPA").
+`height: 45px; width: auto`. No modo escuro o anel preto some no fundo,
+então `[data-theme="dark"] .brand__mark` recebe um chip claro fixo
+(`background: #EFE9DC; border-radius: 11px; padding: 4px`). O logo é a
+exceção de paleta registrada (ver §2).
 
 Meta no canto: ano · edição · botão de tema. Botão de tema em mono caixa
 baixa com borda fininha; troca de label `◑ tema escuro` / `◐ tema

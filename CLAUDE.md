@@ -20,6 +20,11 @@ Contraste alto, mas sem agressão luminosa. Usar as variáveis CSS definidas
 em `:root`. Não introduzir cores novas sem revisão. Palette atual:
 papel `#EFE9DC`, tinta `#1A1814`, oxblood `#8C2A2A`, ouro antigo `#A88341`.
 
+Exceção única e registrada: o logo da marca (`/shared/cpa-logo.png`) usa
+anel quase-preto e infinito arco-íris saturado. A exceção vale só pro
+logo; o corpo do site segue a paleta suave. No modo escuro o logo recebe
+um chip claro atrás pra não sumir no fundo.
+
 ### 2. Movimento mínimo
 Animações são curtas, lentas e desligáveis. Sempre respeitar
 `prefers-reduced-motion: reduce`. A media query no CSS já desativa toda
@@ -97,7 +102,9 @@ En-dash (U+2013) também não. Hífen comum (`-`) só onde for hífen mesmo
   autista brasileira. Mas respeitar pessoa que se nomeia diferente.
 - **Não usar** "azul" como símbolo do autismo (ligação com Autism Speaks,
   organização rejeitada por boa parte da comunidade). Símbolo do CPA é
-  a estrela vermelha/dourada: leftist + neurodivergente.
+  o logo (`/shared/cpa-logo.png`): bandeira vermelha/preta (esquerda) e
+  infinito arco-íris (neurodivergência) com "CPA" num círculo de
+  pincelada. O favicon (`favicon.svg`) é o infinito arco-íris sozinho.
 - **Não usar** o símbolo do quebra-cabeça pela mesma razão.
 
 ---

@@ -272,7 +272,7 @@ hr { border: 0; border-top: var(--rule-gold); margin: clamp(40px, 5vw, 64px) 0; 
 
 <h3>Identidade política, não diagnóstica</h3>
 <ul>
-  <li>Símbolo: <strong>estrela vermelha com contorno dourado</strong> (leftist e autista).</li>
+  <li>Símbolo: <strong>logo do CPA</strong> (bandeira vermelha/preta + infinito arco-íris + "CPA"). Favicon: o infinito arco-íris sozinho.</li>
   <li>Proibido: quebra-cabeça (Autism Speaks) e azul como símbolo de autismo.</li>
   <li>Pessoa autista é sujeito político, não paciente.</li>
 </ul>
@@ -670,15 +670,13 @@ hr { border: 0; border-top: var(--rule-gold); margin: clamp(40px, 5vw, 64px) 0; 
 </p>
 
 <p>Marca:</p>
-<pre><code>&lt;svg class="brand__mark" viewBox="0 0 24 24"&gt;
-  &lt;path class="star-outline"
-        d="M12 0.6 L14.9 8.5 ..." /&gt;
-&lt;/svg&gt;</code></pre>
+<pre><code>&lt;img class="brand__mark" src="/shared/cpa-logo.png" alt="" width="44" height="45"&gt;</code></pre>
 
 <p>
-  Estrela 10 pontas <strong>ligeiramente assimétrica</strong> (gesto
-  de neurodivergência). Fill oxblood, stroke gold <code>0.6</code>.
-  Não simetrizar.
+  Logo do CPA (bandeira vermelha/preta + infinito arco-íris + "CPA").
+  <code>height: 45px; width: auto</code>. No modo escuro o anel preto
+  some no fundo, então <code>[data-theme="dark"] .brand__mark</code>
+  ganha um chip claro fixo. É a exceção de paleta registrada.
 </p>
 
 <p>
@@ -782,7 +780,7 @@ hr { border: 0; border-top: var(--rule-gold); margin: clamp(40px, 5vw, 64px) 0; 
 <ul>
   <li>Decorativas: <code>aria-hidden="true"</code> + <code>alt=""</code>.</li>
   <li>Informativas: <code>alt</code> descritivo em pt-BR.</li>
-  <li>SVGs decorativos (<code>brand__mark</code>, ícones): <code>aria-hidden="true"</code>.</li>
+  <li>Logo decorativo (<code>brand__mark</code>): <code>alt=""</code>. SVGs decorativos (ícones): <code>aria-hidden="true"</code>.</li>
 </ul>
 
 <h3>Tema escuro</h3>
