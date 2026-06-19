@@ -165,13 +165,17 @@ img, svg { display: block; max-width: 100%; }
 }
 
 .brand__mark {
-  width: 28px;
-  height: 28px;
+  height: 45px;
+  width: auto;
   flex-shrink: 0;
-  color: var(--oxblood);
-  filter: drop-shadow(0 0 0 var(--gold));
+  display: block;
 }
-.brand__mark .star-outline { stroke: var(--gold); stroke-width: 0.6; fill: var(--oxblood); }
+/* anel preto do logo some no fundo escuro: chip claro fixo só no dark */
+[data-theme="dark"] .brand__mark {
+  background: #EFE9DC;
+  border-radius: 11px;
+  padding: 4px;
+}
 
 .brand__word {
   font-family: var(--display);

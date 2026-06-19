@@ -1,4 +1,5 @@
 *.png
+!shared/*.png
 .playwright-mcp/
 .env
 blog/.env

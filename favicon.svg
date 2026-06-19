@@ -1,9 +1,14 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-  <style>
-    path { fill: #8C2A2A; stroke: #A88341; stroke-width: 0.6; }
-    @media (prefers-color-scheme: dark) {
-      path { fill: #B03535; stroke: #C9A968; }
-    }
-  </style>
-  <path d="M12 0.6 L14.9 8.5 L23.2 9.1 L16.7 14.7 L18.7 22.9 L12 18.2 L5.3 22.6 L7.2 14.5 L0.8 9.1 L9.1 8.5 Z"/>
+  <defs>
+    <linearGradient id="nd" x1="2" y1="12" x2="22" y2="12" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#D94A3D"/>
+      <stop offset="0.2" stop-color="#E08A2E"/>
+      <stop offset="0.4" stop-color="#D9B43A"/>
+      <stop offset="0.6" stop-color="#3E9E51"/>
+      <stop offset="0.8" stop-color="#2F73C4"/>
+      <stop offset="1" stop-color="#7A45A8"/>
+    </linearGradient>
+  </defs>
+  <path fill="none" stroke="url(#nd)" stroke-width="3.1" stroke-linecap="round" stroke-linejoin="round"
+        d="M12 12 C9.4 8.3 4.3 8.3 4.3 12 C4.3 15.7 9.4 15.7 12 12 C14.6 8.3 19.7 8.3 19.7 12 C19.7 15.7 14.6 15.7 12 12 Z"/>
 </svg>

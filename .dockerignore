@@ -2,6 +2,7 @@
 .claude
 .playwright-mcp
 *.png
+!shared/*.png
 .env
 .env.example
 deploy.sh
