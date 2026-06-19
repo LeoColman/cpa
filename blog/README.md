@@ -62,8 +62,10 @@ Estilos exclusivos do blog (grid de cards, post body) ficam em
 
 ## Pontos abertos
 
-- **SMTP**: convite de autora exige email; sem SMTP configurado, o
-  Owner precisa copiar o link de convite manualmente do painel.
+- **SMTP**: convite de autora (email transacional) vai via Postal por
+  SMTP. Preencher `MAIL_SMTP_*` no `.env`. Postal cobre só o
+  transacional; newsletter em massa (Members) o Ghost só faz via
+  Mailgun nativo, então fica fora por ora.
 - **Backup**: ainda sem Borgmatic. Padrão futuro = `nextcloud/`.
 - **Alias `/admin`**: hoje o admin é `/blog/ghost`. Se quiser
   `/admin → /blog/ghost`, adicionar redirect no Caddy do site.
