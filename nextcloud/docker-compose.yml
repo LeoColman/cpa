@@ -36,6 +36,12 @@ services:
         - "caddy.reverse_proxy={{upstreams 80}}"
         - "caddy.rewrite_0=/.well-known/carddav /remote.php/dav"
         - "caddy.rewrite_1=/.well-known/caldav /remote.php/dav"
+        # Libera o embed do Forms só pro site principal (rota escopada).
+        # Remove X-Frame-Options e amplia o frame-ancestors da CSP do
+        # Nextcloud, preservando o nonce (find/replace, não set estático).
+        - "caddy.header_0=/apps/forms/*"
+        - "caddy.header_0.-X-Frame-Options="
+        - "caddy.header_0.Content-Security-Policy=\"frame-ancestors 'self'\" \"frame-ancestors 'self' https://coletivopopularautista.com.br\""
     networks: [default, caddy]
 
   db:
