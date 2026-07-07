@@ -109,6 +109,8 @@ services:
     environment:
       - BORG_PASSPHRASE=${BORG_PASSPHRASE}
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - BORG_REPO_PRIMARY=${BORG_REPO_PRIMARY}
+      - BORG_REPO_SECONDARY=${BORG_REPO_SECONDARY}
       - BACKUP_CRON=0 * * * *
     depends_on: [db]
     deploy:
