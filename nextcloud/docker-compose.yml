@@ -125,6 +125,10 @@ volumes:
 configs:
   borgmatic-config:
     file: ./borgmatic-config.yaml
+    # Swarm config é imutável. Ao mudar o conteúdo de borgmatic-config.yaml,
+    # suba o sufixo (_1 -> _2) para o stack deploy criar um config novo e
+    # trocar o serviço. Sem o bump, o deploy mantém o config antigo.
+    name: cpa-nextcloud_borgmatic_1
 
 networks:
   default:
