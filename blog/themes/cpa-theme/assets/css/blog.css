@@ -283,6 +283,27 @@
   margin: clamp(28px, 4vw, 48px) 0;
 }
 
+/* cards do editor (Koenig): larguras wide e full quebram a coluna de 38em */
+.post__body .kg-card { margin: 1.6em 0; }
+.post__body .kg-image { width: 100%; height: auto; border-radius: 2px; }
+.post__body .kg-width-wide {
+  width: min(90vw, 52em);
+  margin-left: 50%;
+  transform: translateX(-50%);
+}
+.post__body .kg-width-full {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  border-radius: 0;
+}
+.post__body .kg-card figcaption {
+  font-size: 13px;
+  line-height: 1.5;
+  text-align: center;
+  color: var(--ink-soft);
+  margin-top: 8px;
+}
+
 /* ============================================================
    BLOCO AUTORA (rodapé do post)
    ============================================================ */

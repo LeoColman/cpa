@@ -2,12 +2,16 @@
   "name": "cpa-theme",
   "description": "Tema do blog do Coletivo Popular Autista. Reusa /shared/cpa-base.css do site principal.",
   "version": "0.1.0",
+  "keywords": [
+    "ghost-theme"
+  ],
   "engines": {
     "ghost": ">=5.0.0"
   },
   "license": "MIT",
   "author": {
-    "name": "Coletivo Popular Autista"
+    "name": "Coletivo Popular Autista",
+    "email": "contato@coletivopopularautista.com.br"
   },
   "config": {
     "posts_per_page": 12,
