@@ -23,6 +23,11 @@ services:
       database__connection__user: "${MYSQL_USER}"
       database__connection__password: "${MYSQL_PASSWORD}"
       database__connection__database: "${MYSQL_DATABASE}"
+      # pool.min=0: não deixa conexão ociosa parada no pool. O IPVS da
+      # overlay do Swarm reseta conexão TCP idle (~15 min); o Ghost reusava
+      # uma já morta e devolvia 500 por ECONNRESET. Sem mínimo, o pool reapa
+      # a conexão antes do corte.
+      database__pool__min: "0"
       mail__from: "${MAIL_FROM}"
       mail__transport: SMTP
       mail__options__host: "${MAIL_SMTP_HOST}"
@@ -64,6 +69,10 @@ services:
       retries: 6
       start_period: 30s
     deploy:
+      # dnsrr: MySQL sem VIP/IPVS. Ghost resolve o IP do container direto,
+      # fora do load-balancer da overlay que derruba conexão ociosa. Reforça
+      # o pool.min=0 do Ghost contra o 500 por ECONNRESET.
+      endpoint_mode: dnsrr
       replicas: 1
       placement: { constraints: [node.role == manager] }
       restart_policy: { condition: on-failure, delay: 5s }
