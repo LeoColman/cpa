@@ -356,6 +356,8 @@ footer.cry::before {
   color: color-mix(in srgb, var(--paper) 55%, transparent);
 }
 .cry__base b { color: var(--gold-soft); font-weight: 500; }
+.cry__base a { color: var(--paper); border-bottom: 0; }
+.cry__base a:hover { color: var(--gold-soft); }
 
 @media (max-width: 760px) {
   .cry__cols { grid-template-columns: 1fr 1fr; }
