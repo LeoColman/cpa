@@ -244,8 +244,8 @@ células com divisórias finas sem borda explícita.
 
 Cada seção:
 - Tem `id` único em kebab-case curto (`#inicio`, `#manifesto`, `#posicao`,
-  `#funciona`, `#regras`, `#participar`, `#ingresso`, `#contato`,
-  `#sensorial`).
+  `#funciona`, `#regras`, `#estatuto`, `#participar`, `#ingresso`,
+  `#contato`, `#sensorial`).
 - Eyebrow numerado em sequência (`§ 00`, `§ 01`, ...). Ao adicionar
   seção: renumerar todas a partir daquela posição.
 - Eyebrow envolvido em `.section-link` para virar permalink compartilhável.
@@ -526,13 +526,13 @@ Coisas que **não fazer**, listadas para não esquecer:
 ## 11 · Assets compartilhados (`/shared/`)
 
 A identidade visual mora em `shared/`, servida pelo nginx em
-`/shared/*`. Todas as superfícies (homepage, identidade, blog) usam o
-mesmo arquivo, não cópia.
+`/shared/*`. Todas as superfícies (homepage, identidade, estatuto, formulário,
+blog) usam o mesmo arquivo, não cópia.
 
 | Arquivo | O que tem | Quem referencia |
 |---|---|---|
-| `shared/cpa-base.css` | Tokens (`:root`), tema escuro, body, masthead, eyebrow, footer cry, reveal, focus | `index.html`, `identidade.html`, tema `cpa-theme` do blog |
-| `shared/cpa-home.css` | Layouts da home (`.hero*`, `.standfirst`, `.pullquote`, `.participar`, `.ingresso`, `.funciona`, `.regras`, `.sensorial`, `.contato`) | só `index.html` |
+| `shared/cpa-base.css` | Tokens (`:root`), tema escuro, body, masthead, eyebrow, footer cry, reveal, focus | `index.html`, `identidade.html`, `estatuto.html`, `formulario.html`, tema `cpa-theme` do blog |
+| `shared/cpa-home.css` | Layouts da home (`.hero*`, `.standfirst`, `.pullquote`, `.participar`, `.ingresso`, `.funciona`, `.regras`, `.estatuto`, `.sensorial`, `.contato`) | só `index.html` |
 | `shared/cpa.js` | Toggle de tema (claro/escuro) | todas |
 
 Mudar paleta = mudar `cpa-base.css`. Reflete em todo lugar simultaneamente.

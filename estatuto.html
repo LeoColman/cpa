@@ -1,0 +1,961 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>(function(){var s=localStorage.getItem('cpa-theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.dataset.theme=s;}());</script>
+<title>CPA · Estatuto</title>
+<meta name="description" content="Estatuto político-organizativo e normas gerais de convivência do Coletivo Popular Autista. Texto completo em HTML acessível e download em PDF.">
+<meta name="theme-color" content="#EFE9DC">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta property="og:title" content="CPA · Estatuto político-organizativo">
+<meta property="og:description" content="Linha política, estrutura, formas de decisão e normas de convivência do Coletivo Popular Autista.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://coletivopopularautista.com.br/estatuto/">
+<meta property="og:image" content="https://coletivopopularautista.com.br/shared/cpa-og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://coletivopopularautista.com.br/shared/cpa-og.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&family=Lexend:wght@300..700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="/shared/cpa-base.css">
+
+<style>
+/* Estatuto: overrides locais sobre /shared/cpa-base.css.
+   Documento longo, coluna estreita, hierarquia clara.
+   Nada de movimento além do que a base já define. */
+
+.lei { padding: clamp(40px, 6vw, 88px) 0 clamp(64px, 9vw, 130px); }
+.lei .shell { max-width: 1080px; }
+
+/* ---- abertura ---- */
+
+.lei__hero { max-width: 62ch; margin-bottom: clamp(32px, 4vw, 56px); }
+.lei__title {
+  font-family: var(--display);
+  font-weight: 400;
+  font-size: clamp(34px, 5vw, 64px);
+  line-height: 1.0;
+  letter-spacing: -0.025em;
+  margin: 16px 0 20px;
+}
+.lei__title em { color: var(--oxblood); font-weight: 380; }
+.lei__lede {
+  font-family: var(--display);
+  font-weight: 300;
+  font-size: clamp(17px, 1.4vw, 20px);
+  line-height: 1.55;
+  color: var(--ink-soft);
+}
+
+.lei__status {
+  max-width: 62ch;
+  margin: 0 0 clamp(28px, 3.5vw, 44px);
+  padding: 16px 20px;
+  background: var(--paper-warm);
+  border-left: 3px solid var(--gold);
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--ink-soft);
+}
+.lei__status b { color: var(--ink); font-weight: 700; }
+
+/* ---- download ---- */
+
+.lei__baixar {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: clamp(16px, 3vw, 40px);
+  margin: 0 0 clamp(40px, 5vw, 72px);
+  padding: clamp(20px, 2.5vw, 30px) 0;
+  border-top: 2px solid var(--ink);
+  border-bottom: 2px solid var(--ink);
+}
+.lei__baixar-texto { font-size: 15px; line-height: 1.6; color: var(--ink-soft); max-width: 52ch; }
+.lei__baixar-texto b { color: var(--ink); font-weight: 700; }
+.lei__baixar-meta {
+  display: block;
+  font-family: var(--mono);
+  font-size: 11.5px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  margin-top: 8px;
+}
+.lei__botao {
+  font-family: var(--mono);
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border: 2px solid var(--ink);
+  border-radius: 2px;
+  padding: 14px 22px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--ink);
+  background: var(--paper);
+  white-space: nowrap;
+  transition: background 240ms ease, color 240ms ease, border-color 240ms ease;
+}
+.lei__botao::after { content: "↓"; font-size: 15px; }
+.lei__botao:hover {
+  background: var(--oxblood);
+  border-color: var(--oxblood);
+  color: var(--paper);
+}
+@media (max-width: 720px) {
+  .lei__baixar { grid-template-columns: 1fr; }
+  .lei__botao { justify-content: center; }
+}
+
+/* ---- sumário ---- */
+
+.lei__sumario {
+  margin: 0 0 clamp(48px, 6vw, 88px);
+  padding-bottom: clamp(28px, 3.5vw, 44px);
+  border-bottom: var(--rule-gold);
+}
+.lei__sumario h2 {
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--oxblood);
+  margin-bottom: 18px;
+}
+.lei__sumario ol {
+  list-style: none;
+  columns: 2;
+  column-gap: clamp(24px, 4vw, 56px);
+  font-size: 15px;
+}
+.lei__sumario li { margin-bottom: 9px; break-inside: avoid; }
+.lei__sumario li a { border-bottom-color: color-mix(in srgb, var(--ink) 18%, transparent); }
+.lei__sumario .n {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--oxblood);
+  margin-right: 8px;
+}
+@media (max-width: 720px) {
+  .lei__sumario ol { columns: 1; }
+}
+
+/* ---- corpo ---- */
+
+.lei__corpo { max-width: 68ch; }
+
+.lei__corpo h2 {
+  font-family: var(--display);
+  font-weight: 400;
+  font-size: clamp(25px, 3vw, 36px);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin: clamp(56px, 7vw, 96px) 0 8px;
+  padding-top: clamp(22px, 3vw, 36px);
+  border-top: 2px solid var(--ink);
+  scroll-margin-top: 24px;
+}
+.lei__corpo h2 .n {
+  display: block;
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  margin-bottom: 14px;
+}
+.lei__corpo h2 .n::before { content: "§ "; color: var(--oxblood); font-family: var(--display); }
+
+.artigo { margin-top: clamp(28px, 3.5vw, 42px); }
+.artigo h3 {
+  font-family: var(--display);
+  font-weight: 500;
+  font-size: clamp(17px, 1.5vw, 21px);
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  margin-bottom: 10px;
+  color: var(--ink);
+}
+.artigo h3 .art {
+  font-family: var(--mono);
+  font-size: 0.72em;
+  letter-spacing: 0.06em;
+  color: var(--oxblood);
+  display: block;
+  margin-bottom: 4px;
+  font-weight: 500;
+}
+
+.artigo p { margin: 0 0 0.9em; line-height: 1.66; color: var(--ink-soft); }
+.artigo p:last-child { margin-bottom: 0; }
+.artigo p b, .artigo li b { color: var(--ink); font-weight: 700; }
+.artigo p.caput { color: var(--ink); }
+
+.par { padding-left: 3.4em; text-indent: -3.4em; }
+.par .marca {
+  font-family: var(--mono);
+  font-size: 0.86em;
+  color: var(--oxblood);
+  margin-right: 0.5em;
+}
+.par--unico { padding-left: 0; text-indent: 0; }
+.par--unico .marca { display: inline; }
+
+/* incisos mantêm semântica de lista ordenada: numeral romano no ::marker,
+   sem list-style:none (que apaga a lista pra leitor de tela no Safari). */
+.incisos {
+  list-style: upper-roman;
+  margin: 0 0 1em 3.2em;
+}
+.incisos > li {
+  padding-left: 0.5em;
+  margin-bottom: 0.55em;
+  line-height: 1.62;
+  color: var(--ink-soft);
+}
+.incisos > li::marker {
+  color: var(--oxblood);
+  font-family: var(--mono);
+  font-size: 0.82em;
+}
+
+@media (max-width: 560px) {
+  .par { padding-left: 0; text-indent: 0; }
+  .incisos { margin-left: 2.4em; }
+}
+
+/* ---- rodapé do documento ---- */
+
+.lei__fim {
+  max-width: 68ch;
+  margin-top: clamp(56px, 7vw, 96px);
+  padding-top: clamp(24px, 3vw, 36px);
+  border-top: 2px solid var(--ink);
+}
+.lei__fim h2 {
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--oxblood);
+  margin-bottom: 14px;
+}
+.lei__fim p { margin: 0 0 0.9em; line-height: 1.66; color: var(--ink-soft); }
+.lei__fim p:last-child { margin-bottom: 0; }
+</style>
+
+</head>
+<body>
+
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+
+<!-- ============================================================
+     MASTHEAD
+     ============================================================ -->
+<header class="masthead">
+  <div class="shell">
+    <div class="masthead__rule masthead__rule--thick"></div>
+    <div class="masthead__rule"></div>
+
+    <div class="masthead__row reveal reveal-1">
+      <a href="/" class="brand" aria-label="CPA · início">
+        <img class="brand__mark" src="/shared/cpa-logo.png" alt="" width="44" height="45">
+        <span class="brand__word">
+          Coletivo Popular Autista
+          <small>CPA · Org. de base · 2026</small>
+        </span>
+      </a>
+
+      <nav class="masthead__nav" aria-label="Navegação principal">
+        <a href="/#manifesto">Manifesto</a>
+        <a href="/#participar">Participar</a>
+        <a href="/estatuto/" aria-current="page">Estatuto</a>
+        <a href="/formulario/">Inscrição</a>
+        <a href="/blog">Blog</a>
+        <a href="/#contato">Contato</a>
+      </nav>
+
+      <div class="masthead__meta">
+        Ano <b>I</b> · Edição <b>I</b><br>
+        Boletim aberto · Brasil<br>
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-live="polite"></button>
+      </div>
+    </div>
+
+    <div class="masthead__rule"></div>
+  </div>
+</header>
+
+<main id="conteudo">
+
+<section class="lei">
+  <div class="shell">
+
+    <header class="lei__hero">
+      <p class="eyebrow"><a class="section-link" href="/">Documento · <b>Estatuto</b></a></p>
+      <h1 class="lei__title">
+        Estatuto político-organizativo<br>
+        e <em>normas gerais de convivência</em>
+      </h1>
+      <p class="lei__lede">
+        O texto que define a linha política, os objetivos, a estrutura
+        organizativa, as formas de decisão e as regras de convivência do
+        Coletivo Popular Autista.
+      </p>
+    </header>
+
+    <p class="lei__status">
+      <b>Situação: minuta para aprovação em assembleia.</b> Este texto ainda
+      não foi votado. Vale como proposta em discussão. Depois da aprovação,
+      esta página passa a registrar a versão em vigor e a data da assembleia.
+    </p>
+
+    <div class="lei__baixar">
+      <p class="lei__baixar-texto">
+        <b>Prefere ler offline ou imprimir?</b> O Estatuto completo também
+        está disponível em PDF, com a mesma redação desta página.
+        <span class="lei__baixar-meta">PDF · 14 páginas · 221 KB</span>
+      </p>
+      <a class="lei__botao" href="/estatuto-cpa-2026.pdf" download="CPA-Estatuto-2026.pdf">
+        Baixar o Estatuto em PDF
+      </a>
+    </div>
+
+    <nav class="lei__sumario" aria-labelledby="sumario-titulo">
+      <h2 id="sumario-titulo">Sumário</h2>
+      <ol>
+        <li><a href="#apresentacao">Apresentação</a></li>
+        <li><span class="n">1</span><a href="#cap-1">Denominação, natureza e identidade política</a></li>
+        <li><span class="n">2</span><a href="#cap-2">Princípios e objetivos</a></li>
+        <li><span class="n">3</span><a href="#cap-3">Ingresso, permanência e participação</a></li>
+        <li><span class="n">4</span><a href="#cap-4">Estrutura organizativa</a></li>
+        <li><span class="n">5</span><a href="#cap-5">Coordenações estaduais</a></li>
+        <li><span class="n">6</span><a href="#cap-6">Assembleias e decisões coletivas</a></li>
+        <li><span class="n">7</span><a href="#cap-7">Convivência, proteção e disciplina</a></li>
+        <li><span class="n">8</span><a href="#cap-8">Denúncias, apuração e medidas</a></li>
+        <li><span class="n">9</span><a href="#cap-9">Dados, comunicação e representação</a></li>
+        <li><span class="n">10</span><a href="#cap-10">Alteração, dissolução e vigência</a></li>
+        <li><span class="n">A</span><a href="#anexo-a">Anexo A · Normas gerais dos espaços digitais</a></li>
+      </ol>
+    </nav>
+
+    <article class="lei__corpo">
+
+      <h2 id="apresentacao"><span class="n">Apresentação</span>O que é o CPA</h2>
+
+      <div class="artigo">
+        <p class="caput">
+          O Coletivo Popular Autista (CPA) é uma organização política informal,
+          autônoma, de esquerda e suprapartidária. É formada por pessoas
+          autistas adultas e por pessoas adultas em investigação de autismo que
+          se identificam com a esquerda e aceitam este Estatuto.
+        </p>
+        <p>
+          O CPA se organiza inicialmente pela internet. Os meios digitais são
+          usados para comunicação, formação, articulação, mobilização e
+          organização de atividades e ações políticas. O coletivo também poderá
+          atuar presencialmente por meio da Direção Nacional, das Coordenações
+          Estaduais, de núcleos, frentes de trabalho e atividades locais.
+        </p>
+        <p>
+          Este Estatuto define a linha política, os objetivos, a estrutura
+          organizativa, as formas de decisão e as regras gerais de convivência
+          do CPA. Regras operacionais de plataformas, grupos e canais digitais
+          poderão ser detalhadas em regulamentos próprios.
+        </p>
+      </div>
+
+      <h2 id="cap-1"><span class="n">Capítulo 1</span>Denominação, natureza e identidade política</h2>
+
+      <div class="artigo">
+        <h3><span class="art">Art. 1º</span>Denominação e natureza</h3>
+        <p class="caput">
+          O Coletivo Popular Autista, identificado pela sigla CPA, é uma
+          organização política informal, autônoma, nacional e sem personalidade
+          jurídica própria.
+        </p>
+        <p class="par"><span class="marca">§ 1º</span>O CPA não tem finalidade lucrativa.</p>
+        <p class="par"><span class="marca">§ 2º</span>O CPA não é partido político, serviço de saúde, instituição terapêutica, empresa ou órgão público.</p>
+        <p class="par"><span class="marca">§ 3º</span>O CPA tem duração por tempo indeterminado.</p>
+      </div>
+
+      <div class="artigo">
+        <h3><span class="art">Art. 2º</span>Linha política</h3>
+        <p class="caput">
+          O CPA é uma organização de esquerda, anticapacitista, antifascista,
+          antirracista, feminista e comprometida com os direitos das pessoas
+          LGBTQIAPN+.
+        </p>
+        <p class="par"><span class="marca">§ 1º</span>A participação é exclusiva para pessoas que se identificam com a esquerda e respeitam a linha política do coletivo.</p>
+        <p class="par"><span class="marca">§ 2º</span>São incompatíveis com o CPA manifestações de extrema-direita, fascistas, nazistas, supremacistas, eugenistas, autoritárias, anticomunistas hostis ou contrárias aos direitos humanos.</p>
+        <p class="par"><span class="marca">§ 3º</span>Debates entre correntes de esquerda são permitidos quando realizados com respeito e sem perseguição, sabotagem ou hostilidade contra o coletivo.</p>
+      </div>
+
+      <div class="artigo">
+        <h3><span class="art">Art. 3º</span>Caráter suprapartidário</h3>
+        <p class="caput">
+          O CPA é suprapartidário. Pessoas filiadas ou não filiadas a partidos
+          podem participar, desde que respeitem este Estatuto e a linha política
+          do coletivo.
+        </p>
+        <p class="par"><span class="marca">§ 1º</span>Nenhum partido, mandato ou candidatura poderá controlar o CPA.</p>
+        <p class="par"><span class="marca">§ 2º</span>É proibida propaganda eleitoral nos espaços internos, salvo decisão específica da Direção Nacional sobre atividade pública de interesse do coletivo.</p>
+        <p class="par"><span class="marca">§ 3º</span>O CPA poderá dialogar e atuar com partidos, movimentos, sindicatos, mandatos e organizações sociais quando houver acordo político sobre uma pauta ou ação.</p>
+      </div>
+
+      <h2 id="cap-2"><span class="n">Capítulo 2</span>Princípios e objetivos</h2>
+
+      <div class="artigo">
+        <h3><span class="art">Art. 4º</span>Princípios</h3>
+        <ol class="incisos">
+          <li>protagonismo autista: “nada sobre nós sem nós”;</li>
+          <li>autonomia e respeito às diferentes formas de comunicação e existência autista;</li>
+          <li>combate ao capacitismo e a todas as formas de opressão;</li>
+          <li>acessibilidade e respeito às necessidades de suporte;</li>
+          <li>organização coletiva, formação política e participação democrática;</li>
+          <li>proteção da privacidade, do consentimento e dos dados pessoais;</li>
+          <li>solidariedade, apoio mútuo e responsabilidade coletiva;</li>
+          <li>defesa da ciência, dos serviços públicos e dos direitos sociais.</li>
+        </ol>
+      </div>
+
+      <div class="artigo">
+        <h3><span class="art">Art. 5º</span>Objetivos</h3>
+        <ol class="incisos">
+          <li>organizar politicamente pessoas autistas adultas;</li>
+          <li>defender direitos, dignidade, autonomia e participação social das pessoas autistas;</li>
+          <li>combater o capacitismo, a violência institucional, a desinformação e a exclusão;</li>
+          <li>promover formação política e letramento sobre autismo, classe, raça, gênero, sexualidade e direitos humanos;</li>
+          <li>produzir e divulgar conteúdo acessível, responsável e baseado em evidências e vivências autistas;</li>
+          <li>articular campanhas, mobilizações, reuniões, eventos, formações e ações políticas;</li>
+          <li>fortalecer a participação de mulheres, pessoas trans e travestis, pessoas negras, indígenas, periféricas, pobres, LGBTQIAPN+ e pessoas com maiores necessidades de suporte;</li>
+          <li>construir relações com movimentos sociais, universidades, profissionais, coletivos e instituições compatíveis com a linha política do CPA;</li>
+          <li>ampliar a organização do CPA nos estados e municípios.</li>
+        </ol>
+      </div>
+
+      <div class="artigo">
+        <h3><span class="art">Art. 6º</span>Limites de atuação</h3>
+        <p class="caput">
+          O apoio entre pares realizado no CPA não substitui atendimento
+          médico, psicológico, jurídico, assistencial ou emergencial.
+        </p>
+      </div>
+
+      <h2 id="cap-3"><span class="n">Capítulo 3</span>Ingresso, permanência e participação</h2>
+
+      <div class="artigo">
+        <h3><span class="art">Art. 7º</span>Requisitos de ingresso</h3>
+        <ol class="incisos">
+          <li>mínimo de 18 anos;</li>
+          <li>autodeclaração como pessoa autista ou pessoa em investigação de autismo;</li>
+          <li>identificação com a esquerda;</li>
+          <li>preenchimento do processo de ingresso;</li>
+          <li>aceite deste Estatuto e das normas internas;</li>
+          <li>aprovação pela estrutura responsável pelo ingresso.</li>
+        </ol>
+        <p class="par"><span class="marca">§ 1º</span>O CPA não exige laudo, CID, relatório ou outro documento médico.</p>
+        <p class="par"><span class="marca">§ 2º</span>A recusa do ingresso não precisa ser justificada.</p>
+      </div>
+
+      <div class="artigo">
+        <h3><span class="art">Art. 8º</span>Condição de integrante</h3>
+        <p class="caput">
+          É integrante do CPA a pessoa aprovada no processo de ingresso e
+          vinculada à estrutura nacional do coletivo.
+        </p>
+        <p class="par par--unico"><span class="marca">Parágrafo único.</span>O acesso a uma atividade, grupo, núcleo ou coordenação específica poderá depender de critérios adicionais.</p>
+      </div>
+
+      <div class="artigo">
+        <h3><span class="art">Art. 9º</span>Direitos das pessoas integrantes</h3>
+        <ol class="incisos">
+          <li>participar das atividades e assembleias conforme as regras de cada espaço;</li>
+          <li>ter seu nome, seus pronomes e sua forma de identificação respeitados;</li>
+          <li>receber informações oficiais pelos canais definidos pelo CPA;</li>
+          <li>solicitar acessibilidade e comunicar necessidades de suporte;</li>
+          <li>apresentar propostas, críticas e denúncias;</li>
+          <li>pedir proteção de identidade em denúncias e situações de risco;</li>
+          <li>sair do coletivo a qualquer momento.</li>
+        </ol>
+      </div>
+
+      <div class="artigo">
+        <h3><span class="art">Art. 10º</span>Deveres das pessoas integrantes</h3>
+        <ol class="incisos">
+          <li>cumprir este Estatuto, os regulamentos e as decisões do CPA;</li>
+          <li>respeitar a linha política e a organização do coletivo;</li>
+          <li>respeitar consentimento, privacidade, nomes, pronomes e formas de comunicação;</li>
+          <li>não divulgar informações internas, dados pessoais ou registros sem autorização;</li>
+          <li>cooperar com medidas de segurança e processos de apuração;</li>
+          <li>não usar o nome ou a identidade visual do CPA sem autorização;</li>
+          <li>assumir responsabilidade pelos impactos de sua conduta.</li>
+        </ol>
+      </div>
+
+      <h2 id="cap-4"><span class="n">Capítulo 4</span>Estrutura organizativa</h2>
+
+      <div class="artigo">
+        <h3><span class="art">Art. 11º</span>Estrutura geral</h3>
+        <p class="caput">O CPA poderá se organizar por meio das seguintes estruturas:</p>
+        <ol class="incisos">
+          <li>Assembleia Geral;</li>
+          <li>Direção Nacional;</li>
+          <li>Coordenações Estaduais;</li>
+          <li>núcleos territoriais;</li>
+          <li>frentes de trabalho;</li>
+          <li>comissões temporárias;</li>
+          <li>outras estruturas criadas pela Direção Nacional.</li>
+        </ol>
+      </div>
+
+      <div class="artigo">
+        <h3><span class="art">Art. 12º</span>Direção Nacional</h3>
+        <p class="caput">
+          A Direção Nacional é a estrutura responsável pela condução política e
+          organizativa do CPA em âmbito nacional.
+        </p>
+        <ol class="incisos">
+          <li>formular e conduzir a linha política nacional;</li>
+          <li>garantir o cumprimento deste Estatuto;</li>
+          <li>coordenar a organização nacional e a expansão territorial;</li>
+          <li>convocar assembleias e executar suas decisões;</li>
+          <li>criar, acompanhar e encerrar coordenações, núcleos, frentes e comissões;</li>
+          <li>aprovar campanhas, eventos, reuniões, notas públicas, parcerias e representações institucionais;</li>
+          <li>organizar o processo nacional de ingresso;</li>
+          <li>analisar conflitos, denúncias e violações das normas;</li>
+          <li>proteger a segurança, a privacidade e a continuidade do coletivo;</li>
+          <li>autorizar o uso do nome, da identidade visual e dos canais do CPA;</li>
+          <li>manter comunicação regular com as Coordenações Estaduais.</li>
+        </ol>
+      </div>
+
+      <div class="artigo">
+        <h3><span class="art">Art. 13º</span>Composição da Direção Nacional</h3>
+        <p class="par"><span class="marca">§ 1º</span>O ingresso na Direção Nacional ocorre por convite e aprovação da maioria absoluta de suas pessoas integrantes, equivalente à metade mais uma do total.</p>
+        <p class="par"><span class="marca">§ 2º</span>A permanência na Direção Nacional é por tempo indeterminado.</p>
+        <p class="par"><span class="marca">§ 3º</span>A saída ocorre por pedido próprio ou por decisão da maioria simples das demais pessoas integrantes da Direção Nacional.</p>
+        <p class="par"><span class="marca">§ 4º</span>Qualquer integrante do CPA poderá solicitar a análise do afastamento de alguém da Direção Nacional. A decisão caberá à própria Direção Nacional.</p>
+        <p class="par"><span class="marca">§ 5º</span>Quem estiver diretamente envolvido em uma decisão não poderá votar sobre o próprio caso.</p>
+      </div>
+
+      <div class="artigo">
+        <h3><span class="art">Art. 14º</span>Decisões da Direção Nacional</h3>
+        <p class="par"><span class="marca">§ 1º</span>As decisões comuns serão tomadas por maioria simples das pessoas que participarem da deliberação.</p>
+        <p class="par"><span class="marca">§ 2º</span>Em situação urgente, será necessária a aprovação da maioria das pessoas disponíveis da Direção Nacional.</p>
+        <p class="par"><span class="marca">§ 3º</span>Em caso de empate, o desempate caberá à pessoa com maior tempo contínuo de atuação na Direção Nacional.</p>
+        <p class="par"><span class="marca">§ 4º</span>Decisões urgentes têm efeito imediato e serão comunicadas às pessoas integrantes. Não precisam de ratificação posterior.</p>
+      </div>
+
+      <div class="artigo">
+        <h3><span class="art">Art. 15º</span>Funções e cargos internos</h3>
+        <p class="caput">
+          A Direção Nacional poderá criar, alterar ou encerrar funções e cargos
+          internos conforme a necessidade do CPA.
+        </p>
+        <p class="par"><span class="marca">§ 1º</span>As funções poderão ser ocupadas por pessoas que não integrem a Direção Nacional.</p>
+        <p class="par"><span class="marca">§ 2º</span>A autoridade de cada pessoa ficará limitada à função recebida.</p>
+        <p class="par"><span class="marca">§ 3º</span>A Direção Nacional definirá as atribuições, o prazo e a forma de encerramento da função.</p>
+      </div>
+
+      <h2 id="cap-5"><span class="n">Capítulo 5</span>Coordenações estaduais</h2>
+
+      <div class="artigo">
+        <h3><span class="art">Art. 16º</span>Natureza das Coordenações Estaduais</h3>
+        <p class="caput">
+          As Coordenações Estaduais são estruturas territoriais vinculadas à
+          Direção Nacional. São responsáveis pela organização política e pelas
+          atividades do CPA em cada estado.
+        </p>
+      </div>
+
+      <div class="artigo">
+        <h3><span class="art">Art. 17º</span>Escolha e mandato</h3>
+        <p class="par"><span class="marca">§ 1º</span>As pessoas responsáveis pelas Coordenações Estaduais serão indicadas, aprovadas e afastadas pela Direção Nacional.</p>
+        <p class="par"><span class="marca">§ 2º</span>A Direção Nacional definirá a duração do mandato, a renovação, a substituição e o encerramento de cada coordenação.</p>
+        <p class="par"><span class="marca">§ 3º</span>A atuação estadual não gera autonomia para contrariar a linha nacional, este Estatuto ou as decisões da Direção Nacional.</p>
+      </div>
+
+      <div class="artigo">
+        <h3><span class="art">Art. 18º</span>Deveres das Coordenações Estaduais</h3>
+        <ol class="incisos">
+          <li>manter alinhamento com a linha política, ideológica e organizativa nacional;</li>
+          <li>cumprir e fazer cumprir este Estatuto e as normas internas;</li>
+          <li>incluir nos espaços estaduais apenas pessoas aprovadas no processo de ingresso;</li>
+          <li>organizar e moderar os espaços estaduais, prevenindo conflitos, condutas ilegais e violações das normas;</li>
+          <li>organizar a militância no estado e divulgar pautas, mobilizações e demandas locais;</li>
+          <li>propor e organizar reuniões, formações, eventos, atos e atividades com aprovação prévia da Direção Nacional;</li>
+          <li>informar periodicamente à Direção Nacional as atividades, os avanços, as dificuldades e as necessidades do estado;</li>
+          <li>colaborar com a comunicação nacional por meio de registros, fotos autorizadas, sugestões de pauta e produção de conteúdo local;</li>
+          <li>representar o CPA no estado quando houver autorização da Direção Nacional;</li>
+          <li>proteger a unidade política, a segurança das pessoas integrantes e a imagem pública do coletivo.</li>
+        </ol>
+      </div>
+
+      <h2 id="cap-6"><span class="n">Capítulo 6</span>Assembleias e decisões coletivas</h2>
+
+      <div class="artigo">
+        <h3><span class="art">Art. 19º</span>Assembleia Geral</h3>
+        <p class="caput">
+          A Assembleia Geral é o espaço de decisão coletiva das pessoas
+          integrantes do CPA.
+        </p>
+        <p class="par"><span class="marca">§ 1º</span>Poderão votar as pessoas integrantes presentes durante o período de deliberação.</p>
+        <p class="par"><span class="marca">§ 2º</span>A assembleia poderá decidir com qualquer número de pessoas presentes.</p>
+        <p class="par"><span class="marca">§ 3º</span>As decisões comuns serão tomadas por maioria simples dos votos válidos.</p>
+      </div>
+
+      <div class="artigo">
+        <h3><span class="art">Art. 20º</span>Assembleia ordinária</h3>
+        <p class="par"><span class="marca">§ 1º</span>A assembleia ordinária será realizada a cada três meses.</p>
+        <p class="par"><span class="marca">§ 2º</span>A convocação será feita com antecedência mínima de uma semana.</p>
+        <p class="par"><span class="marca">§ 3º</span>A convocação informará pauta, formato, data, horário e período de votação.</p>
+      </div>
+
+      <div class="artigo">
+        <h3><span class="art">Art. 21º</span>Assembleia extraordinária</h3>
+        <p class="par"><span class="marca">§ 1º</span>Qualquer integrante poderá solicitar uma assembleia extraordinária.</p>
+        <p class="par"><span class="marca">§ 2º</span>A Direção Nacional avaliará a solicitação, organizará a pauta e fará a convocação.</p>
+        <p class="par"><span class="marca">§ 3º</span>A antecedência mínima será de um dia, salvo emergência imediata.</p>
+      </div>
+
+      <div class="artigo">
+        <h3><span class="art">Art. 22º</span>Forma de votação</h3>
+        <p class="par"><span class="marca">§ 1º</span>A votação poderá ser aberta ou secreta, conforme o tema e a necessidade de proteção.</p>
+        <p class="par"><span class="marca">§ 2º</span>A convocação informará a forma de votação. A assembleia poderá alterar essa forma antes do início da votação.</p>
+        <p class="par"><span class="marca">§ 3º</span>Temas que envolvam diretamente uma pessoa serão decididos pela Direção Nacional. A pessoa envolvida não poderá votar sobre si.</p>
+      </div>
+
+      <h2 id="cap-7"><span class="n">Capítulo 7</span>Convivência, proteção e disciplina</h2>
+
+      <div class="artigo">
+        <h3><span class="art">Art. 23º</span>Regra geral</h3>
+        <p class="caput">
+          A participação no CPA exige respeito, consentimento,
+          responsabilidade, acessibilidade e compromisso com a segurança
+          coletiva.
+        </p>
+      </div>
+
+      <div class="artigo">
+        <h3><span class="art">Art. 24º</span>Preconceito e discriminação</h3>
+        <p class="caput">
+          É proibida qualquer forma de preconceito ou discriminação, inclusive
+          em piadas, provocações, símbolos, publicações ou opiniões pessoais.
+        </p>
+        <ol class="incisos">
+          <li>racismo e injúria racial;</li>
+          <li>capacitismo;</li>
+          <li>misoginia e machismo;</li>
+          <li>transfobia e travestifobia;</li>
+          <li>lesbofobia, gayfobia, bifobia, panfobia, assexualfobia e intersexofobia;</li>
+          <li>xenofobia, gordofobia, etarismo e classismo;</li>
+          <li>intolerância religiosa;</li>
+          <li>discriminação por deficiência, saúde, território, origem ou condição social.</li>
+        </ol>
+        <p class="par par--unico"><span class="marca">Parágrafo único.</span>O uso deliberado de nome morto, pronomes incorretos ou perguntas invasivas sobre corpo, transição, sexualidade ou vida íntima constitui violação grave.</p>
+      </div>
+
+      <div class="artigo">
+        <h3><span class="art">Art. 25º</span>Capacitismo</h3>
+        <p class="caput">É proibido:</p>
+        <ol class="incisos">
+          <li>infantilizar pessoas autistas adultas;</li>
+          <li>hierarquizar pessoas autistas por nível de suporte, comunicação, escolaridade, trabalho, autonomia ou diagnóstico;</li>
+          <li>invalidar diagnóstico, investigação, crise, sobrecarga, colapso, desligamento, seletividade, rotina ou comunicação alternativa;</li>
+          <li>exigir contato visual, fala oral, resposta imediata ou comportamento neurotípico como condição de respeito;</li>
+          <li>ridicularizar estereotipias, ecolalia, hiperfocos, interesses, literalidade ou dificuldades executivas;</li>
+          <li>usar deficiência, transtornos ou saúde mental como insulto;</li>
+          <li>defender cura do autismo, normalização forçada, terapia abusiva ou prática coercitiva.</li>
+        </ol>
+      </div>
+
+      <div class="artigo">
+        <h3><span class="art">Art. 26º</span>Assédio e violência</h3>
+        <p class="caput">
+          É proibido assediar, ameaçar, perseguir, intimidar, chantagear,
+          manipular, constranger sexualmente, expor ou incentivar ataques
+          contra qualquer pessoa.
+        </p>
+        <p class="par"><span class="marca">§ 1º</span>Insistir, pressionar, enganar ou aproveitar vulnerabilidade para obter contato, encontro ou relação afetiva, sexual, financeira ou profissional poderá resultar em banimento.</p>
+        <p class="par"><span class="marca">§ 2º</span>O contato privado entre integrantes depende de autorização prévia de quem receberá a mensagem, salvo comunicação necessária de uma estrutura oficial do CPA.</p>
+      </div>
+
+      <div class="artigo">
+        <h3><span class="art">Art. 27º</span>Conteúdos e condutas proibidas</h3>
+        <ol class="incisos">
+          <li>pornografia, nudez explícita ou conteúdo sexual enviado sem autorização;</li>
+          <li>gore ou violência gráfica sem necessidade e sem aviso;</li>
+          <li>apologia ao suicídio, automutilação, abuso, estupro ou violência;</li>
+          <li>charlatanismo, cura do autismo e desinformação perigosa;</li>
+          <li>apostas, cassinos, esquemas de ganho fácil, pirâmides, agiotagem e captação enganosa;</li>
+          <li>golpes, coleta indevida de dados, links maliciosos e publicidade sem autorização;</li>
+          <li>exposição de terceiros sem consentimento;</li>
+          <li>uso indevido do nome, da imagem ou dos canais do CPA.</li>
+        </ol>
+      </div>
+
+      <div class="artigo">
+        <h3><span class="art">Art. 28º</span>Informações internas e manifestação pública</h3>
+        <p class="par"><span class="marca">§ 1º</span>Discussões, decisões, conflitos, relatos e conteúdos dos espaços internos do CPA são informações internas.</p>
+        <p class="par"><span class="marca">§ 2º</span>Uma pessoa pode falar publicamente sobre sua própria experiência, desde que não identifique outras pessoas, não divulgue registros internos e não use o relato para difamar ou prejudicar deliberadamente o CPA.</p>
+        <p class="par"><span class="marca">§ 3º</span>A Direção Nacional decidirá, por maioria simples, se uma publicação ultrapassou esses limites.</p>
+        <p class="par"><span class="marca">§ 4º</span>Esta regra não impede denúncias a autoridades, plataformas, Justiça, profissionais de confiança ou serviços de proteção. Deve ser compartilhado apenas o necessário.</p>
+      </div>
+
+      <h2 id="cap-8"><span class="n">Capítulo 8</span>Denúncias, apuração e medidas</h2>
+
+      <div class="artigo">
+        <h3><span class="art">Art. 29º</span>Denúncias</h3>
+        <p class="par"><span class="marca">§ 1º</span>Denúncias poderão ser apresentadas à Direção Nacional pelo canal indicado, com ou sem documentos.</p>
+        <p class="par"><span class="marca">§ 2º</span>A Direção Nacional poderá preservar a identidade de denunciantes, vítimas e testemunhas.</p>
+        <p class="par"><span class="marca">§ 3º</span>Quem for denunciado receberá informações suficientes para compreender os fatos e apresentar sua versão. Dados que exponham outras pessoas poderão ser preservados.</p>
+        <p class="par"><span class="marca">§ 4º</span>É proibida qualquer retaliação contra quem denunciar, testemunhar ou colaborar com a apuração.</p>
+      </div>
+
+      <div class="artigo">
+        <h3><span class="art">Art. 30º</span>Afastamento preventivo</h3>
+        <p class="par"><span class="marca">§ 1º</span>A pessoa poderá ser afastada preventivamente de uma atividade, estrutura ou de todo o CPA durante a apuração.</p>
+        <p class="par"><span class="marca">§ 2º</span>O afastamento permanece até a conclusão do caso. A análise deve ocorrer o mais rápido possível.</p>
+        <p class="par"><span class="marca">§ 3º</span>O afastamento preventivo não é banimento definitivo.</p>
+        <p class="par"><span class="marca">§ 4º</span>A pessoa poderá apresentar sua versão no prazo e pelo meio definidos pela Direção Nacional.</p>
+      </div>
+
+      <div class="artigo">
+        <h3><span class="art">Art. 31º</span>Comissão de apuração</h3>
+        <p class="par"><span class="marca">§ 1º</span>A Direção Nacional poderá criar uma comissão para analisar um caso.</p>
+        <p class="par"><span class="marca">§ 2º</span>A comissão poderá incluir pessoas que não integrem a Direção Nacional.</p>
+        <p class="par"><span class="marca">§ 3º</span>Cada integrante terá um voto. A decisão será tomada por maioria simples.</p>
+        <p class="par"><span class="marca">§ 4º</span>Em caso de empate, o desempate caberá à pessoa da Direção Nacional com maior tempo contínuo de atuação entre as presentes.</p>
+        <p class="par"><span class="marca">§ 5º</span>Quem tiver conflito de interesses ou envolvimento direto deverá se afastar.</p>
+        <p class="par"><span class="marca">§ 6º</span>A decisão da comissão terá efeito após revisão pela maioria simples da Direção Nacional disponível, sem participação de quem integrou a comissão ou estiver impedido.</p>
+      </div>
+
+      <div class="artigo">
+        <h3><span class="art">Art. 32º</span>Medidas aplicáveis</h3>
+        <ol class="incisos">
+          <li>orientação;</li>
+          <li>remoção de conteúdo;</li>
+          <li>advertência;</li>
+          <li>restrição de participação;</li>
+          <li>afastamento de atividade, função ou estrutura;</li>
+          <li>suspensão;</li>
+          <li>banimento do CPA.</li>
+        </ol>
+        <p class="par par--unico"><span class="marca">Parágrafo único.</span>A medida dependerá da gravidade, do impacto, do risco, da reincidência e da necessidade de proteção.</p>
+      </div>
+
+      <div class="artigo">
+        <h3><span class="art">Art. 33º</span>Banimento e revisão</h3>
+        <p class="par"><span class="marca">§ 1º</span>Banimentos por preconceito, assédio ou conduta ilegal são irrecorríveis dentro do CPA.</p>
+        <p class="par"><span class="marca">§ 2º</span>Nos demais casos, a Direção Nacional poderá aceitar um único pedido de revisão, conforme a gravidade e o risco para o coletivo.</p>
+        <p class="par"><span class="marca">§ 3º</span>O retorno exige maioria absoluta da Direção Nacional, equivalente à metade mais uma do total.</p>
+        <p class="par"><span class="marca">§ 4º</span>Se o retorno for negado, o caso será encerrado de forma definitiva.</p>
+      </div>
+
+      <h2 id="cap-9"><span class="n">Capítulo 9</span>Dados, comunicação e representação</h2>
+
+      <div class="artigo">
+        <h3><span class="art">Art. 34º</span>Proteção de dados e registros</h3>
+        <p class="par"><span class="marca">§ 1º</span>Denúncias, formulários, dados de saúde, identidade, sexualidade, opinião política e outros dados pessoais terão acesso restrito.</p>
+        <p class="par"><span class="marca">§ 2º</span>Somente a Direção Nacional e as pessoas formalmente designadas poderão acessar os registros, no limite necessário e com dever de sigilo.</p>
+        <p class="par"><span class="marca">§ 3º</span>Os registros poderão ser mantidos enquanto forem necessários para proteger o coletivo, documentar reincidências, resguardar direitos ou cumprir obrigação legal.</p>
+        <p class="par"><span class="marca">§ 4º</span>A Direção Nacional deverá revisar esses registros e eliminar ou anonimizar dados que deixarem de ser necessários.</p>
+      </div>
+
+      <div class="artigo">
+        <h3><span class="art">Art. 35º</span>Comunicação oficial</h3>
+        <p class="caput">
+          A Direção Nacional definirá os canais oficiais do CPA. Convocações,
+          decisões, mudanças de normas e comunicados institucionais serão
+          publicados nesses canais.
+        </p>
+      </div>
+
+      <div class="artigo">
+        <h3><span class="art">Art. 36º</span>Representação institucional</h3>
+        <p class="par"><span class="marca">§ 1º</span>Poderão representar o CPA as pessoas da Direção Nacional e as pessoas expressamente autorizadas.</p>
+        <p class="par"><span class="marca">§ 2º</span>A autorização poderá valer por prazo determinado ou durante o exercício de uma função. Não terá caráter permanente.</p>
+        <p class="par"><span class="marca">§ 3º</span>A autorização poderá ser revogada a qualquer momento.</p>
+      </div>
+
+      <h2 id="cap-10"><span class="n">Capítulo 10</span>Alteração, dissolução e vigência</h2>
+
+      <div class="artigo">
+        <h3><span class="art">Art. 37º</span>Alteração do Estatuto</h3>
+        <p class="caput">
+          A alteração deste Estatuto exige aprovação de dois terços dos votos
+          válidos das pessoas presentes em assembleia convocada para essa
+          finalidade.
+        </p>
+      </div>
+
+      <div class="artigo">
+        <h3><span class="art">Art. 38º</span>Dissolução</h3>
+        <p class="caput">
+          A dissolução do CPA exige aprovação de dois terços dos votos válidos
+          das pessoas presentes em assembleia convocada especificamente para
+          esse fim.
+        </p>
+        <p class="par par--unico"><span class="marca">Parágrafo único.</span>A Direção Nacional em exercício será responsável pelo encerramento das estruturas e pela destinação, anonimização ou eliminação dos arquivos e dados.</p>
+      </div>
+
+      <div class="artigo">
+        <h3><span class="art">Art. 39º</span>Casos não previstos</h3>
+        <p class="caput">
+          Os casos não previstos neste Estatuto serão decididos pela Direção
+          Nacional com base na linha política, na segurança coletiva e nos
+          princípios do CPA.
+        </p>
+      </div>
+
+      <div class="artigo">
+        <h3><span class="art">Art. 40º</span>Vigência</h3>
+        <p class="caput">
+          Este Estatuto entra em vigor após aprovação em assembleia e substitui
+          as normas anteriores que forem incompatíveis com seu conteúdo.
+        </p>
+      </div>
+
+      <h2 id="anexo-a"><span class="n">Anexo A</span>Normas gerais dos espaços digitais</h2>
+
+      <div class="artigo">
+        <p class="caput">
+          Este anexo reúne regras operacionais básicas. A Direção Nacional
+          poderá criar regulamentos mais detalhados para plataformas, canais,
+          grupos e atividades específicas.
+        </p>
+      </div>
+
+      <div class="artigo">
+        <h3><span class="art">Art. A.1º</span>Aplicação</h3>
+        <p class="caput">
+          As normas deste anexo valem para todos os espaços digitais oficiais
+          do CPA.
+        </p>
+      </div>
+
+      <div class="artigo">
+        <h3><span class="art">Art. A.2º</span>Moderação</h3>
+        <p class="par"><span class="marca">§ 1º</span>Pessoas responsáveis pela moderação poderão remover conteúdo, limitar participação ou afastar temporariamente alguém para apuração.</p>
+        <p class="par"><span class="marca">§ 2º</span>A medida definitiva será analisada pela estrutura competente.</p>
+      </div>
+
+      <div class="artigo">
+        <h3><span class="art">Art. A.3º</span>Regras específicas</h3>
+        <p class="caput">
+          A Direção Nacional poderá criar ou alterar regras específicas de um
+          espaço conforme a necessidade. A mudança entra em vigor após
+          comunicação oficial.
+        </p>
+      </div>
+
+      <div class="artigo">
+        <h3><span class="art">Art. A.4º</span>Contato privado</h3>
+        <p class="caput">
+          Mensagens privadas entre integrantes exigem autorização prévia de
+          quem receberá a mensagem, salvo comunicação institucional necessária.
+        </p>
+      </div>
+
+      <div class="artigo">
+        <h3><span class="art">Art. A.5º</span>Privacidade</h3>
+        <p class="caput">
+          É proibido divulgar prints, áudios, imagens, números, relatos ou
+          dados dos espaços internos sem autorização.
+        </p>
+      </div>
+
+    </article>
+
+    <section class="lei__fim" aria-labelledby="aprovacao-titulo">
+      <h2 id="aprovacao-titulo">Aprovação</h2>
+      <p>
+        A minuta será submetida a assembleia do Coletivo Popular Autista. A
+        data da assembleia, o registro interno e a ata correspondente serão
+        publicados aqui depois da votação.
+      </p>
+      <p>
+        Dúvidas sobre o texto, propostas de emenda e relatos de barreira de
+        leitura podem ser enviados para
+        <a href="mailto:contato@coletivopopularautista.com.br">contato@coletivopopularautista.com.br</a>.
+      </p>
+    </section>
+
+  </div>
+</section>
+
+</main>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer class="cry">
+  <div class="shell">
+
+    <p class="cry__shout">
+      Solidariedade <em>neurodivergente</em><br>
+      é <u>luta de classe</u>.
+    </p>
+
+    <div class="cry__cols">
+
+      <div class="cry__col">
+        <h4>Coletivo</h4>
+        <ul>
+          <li><a href="/#manifesto">Manifesto</a></li>
+          <li><a href="/#participar">Participar</a></li>
+          <li><a href="/formulario/">Inscrição</a></li>
+          <li><a href="/#regras">Regras</a></li>
+          <li><a href="/estatuto/">Estatuto</a></li>
+          <li><a href="/blog">Blog</a></li>
+        </ul>
+      </div>
+
+      <div class="cry__col">
+        <h4>Acesso</h4>
+        <ul>
+          <li><a href="/#sensorial">Cuidado sensorial</a></li>
+          <li><a href="/#contato">Relatar barreira</a></li>
+        </ul>
+      </div>
+
+      <div class="cry__col">
+        <h4>Contato</h4>
+        <ul>
+          <li><a href="mailto:contato@coletivopopularautista.com.br">contato@coletivopopularautista.com.br</a></li>
+        </ul>
+      </div>
+
+      <div class="cry__col">
+        <h4>Princípio editorial</h4>
+        <p>
+          Todo conteúdo publicado pelo CPA é fruto de leitura coletiva e
+          assembleia. Não falamos pelos autistas. Falamos com eles.
+        </p>
+      </div>
+
+    </div>
+
+    <div class="cry__base">
+      <span>CPA &middot; Coletivo Popular Autista &middot; Ano <b>I</b> &middot; <b>2026</b></span>
+      <span>Conteúdo <b>CC BY-SA 4.0</b> &middot; código <a href="https://github.com/LeoColman/cpa/blob/main/LICENSE" target="_blank" rel="noopener"><b>AGPL-3.0</b></a></span>
+      <span><a href="https://github.com/LeoColman/cpa" target="_blank" rel="noopener">Colabore no GitHub</a></span>
+      <span>Feito com cuidado, <b>sem pressa</b></span>
+    </div>
+
+  </div>
+</footer>
+
+
+<script src="/shared/cpa.js" defer></script>
+</body>
+</html>

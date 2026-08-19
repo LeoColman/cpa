@@ -57,9 +57,11 @@ Três subprojetos têm stack própria e lifecycle independente:
 
 | Caminho | O que é |
 |---|---|
-| `index.html` | Homepage (seções §00 a §08 e footer) |
+| `index.html` | Homepage (seções §00 a §09 e footer) |
 | `identidade.html` | Página viva da identidade visual |
 | `formulario.html` | Página de inscrição (embute o Nextcloud Forms) |
+| `estatuto.html` | Estatuto em HTML acessível, servido em `/estatuto/` |
+| `estatuto-cpa-2026.pdf` | Estatuto em PDF, para download e impressão |
 | `favicon.svg` | Favicon: infinito arco-íris |
 | `shared/` | CSS, JS, logo e og-image compartilhados |
 | `blog/` | Blog Ghost (stack própria) |
@@ -122,6 +124,7 @@ Issues e pull requests são bem-vindos.
 - Site: <https://coletivopopularautista.com.br>
 - Blog: <https://coletivopopularautista.com.br/blog/>
 - Links: <https://links.coletivopopularautista.com.br>
+- Estatuto: <https://coletivopopularautista.com.br/estatuto/>
 - Inscrição: <https://coletivopopularautista.com.br/formulario/>
 - E-mail: <contato@coletivopopularautista.com.br>
 

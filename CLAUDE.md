@@ -116,8 +116,9 @@ step. Sem framework. Páginas servidas por nginx via Docker Swarm.
 Fontes via Google Fonts (Atkinson Hyperlegible, Lexend, JetBrains Mono).
 
 Identidade visual compartilhada (`/shared/cpa-base.css`, `cpa-home.css`,
-`cpa.js`) é **single source of truth** — homepage, identidade e blog
-referenciam por URL absoluta, não copiam. Ver `IDENTIDADE.md` §11-12.
+`cpa.js`) é **single source of truth**: homepage, identidade, estatuto,
+formulário e blog referenciam por URL absoluta, não copiam. Ver
+`IDENTIDADE.md` §11-12.
 
 Blog em `coletivopopularautista.com.br/blog` (subpath). Stack
 independente em `blog/` (Ghost 5 + MySQL 8). Caddy roteia `/blog*` via
@@ -137,10 +138,11 @@ Ordem das seções (numeradas em `§`):
 - `§ 02` Posição política (pull-quote)
 - `§ 03` Como funciona o coletivo
 - `§ 04` Regras do coletivo
-- `§ 05` Como participar
-- `§ 06` Ingresso e desvinculação
-- `§ 07` Contato
-- `§ 08` Cuidado sensorial
+- `§ 05` Estatuto (link pra `/estatuto/` e download do PDF)
+- `§ 06` Como participar
+- `§ 07` Ingresso e desvinculação
+- `§ 08` Contato
+- `§ 09` Cuidado sensorial
 - Footer (brado de fechamento)
 
 Ao adicionar nova seção, renumerar os `§` em ordem.

@@ -458,6 +458,93 @@
 }
 
 /* ============================================================
+   ESTATUTO
+   ============================================================ */
+
+.estatuto {
+  border-top: 2px solid var(--ink);
+  padding: clamp(48px, 7vw, 100px) 0;
+}
+.estatuto__head {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+  gap: clamp(20px, 4vw, 56px);
+  align-items: baseline;
+  margin-bottom: clamp(28px, 3.5vw, 48px);
+}
+.estatuto__title {
+  font-family: var(--display);
+  font-weight: 380;
+  font-size: clamp(34px, 4.5vw, 64px);
+  line-height: 0.98;
+  letter-spacing: -0.02em;
+}
+
+.estatuto__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+  gap: clamp(24px, 4vw, 64px);
+  align-items: start;
+}
+.estatuto__body {
+  max-width: 66ch;
+  font-size: clamp(15.5px, 1.05vw, 17px);
+  line-height: 1.65;
+  color: var(--ink-soft);
+}
+.estatuto__body p + p { margin-top: 0.9em; }
+.estatuto__nota {
+  border-left: 3px solid var(--gold);
+  background: var(--paper-warm);
+  padding: 14px 18px;
+  font-size: 15px;
+}
+.estatuto__nota b { color: var(--ink); font-weight: 700; }
+
+.estatuto__acoes {
+  border-top: 2px solid var(--ink);
+  padding-top: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 12px;
+}
+.estatuto__botao {
+  font-family: var(--mono);
+  font-size: 12.5px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border: 2px solid var(--ink);
+  border-radius: 2px;
+  padding: 14px 18px;
+  text-align: center;
+  color: var(--ink);
+  transition: background 240ms ease, color 240ms ease, border-color 240ms ease;
+}
+.estatuto__botao:hover {
+  background: var(--oxblood);
+  border-color: var(--oxblood);
+  color: var(--paper);
+}
+.estatuto__botao--fraco {
+  border-color: color-mix(in srgb, var(--ink) 32%, transparent);
+  color: var(--ink-soft);
+}
+.estatuto__meta {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  text-align: center;
+}
+
+@media (max-width: 860px) {
+  .estatuto__head { grid-template-columns: 1fr; gap: 20px; }
+  .estatuto__grid { grid-template-columns: 1fr; }
+}
+
+/* ============================================================
    SENSORIAL: accessibility manifesto
    ============================================================ */
 
