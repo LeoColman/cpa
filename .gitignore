@@ -5,3 +5,4 @@
 blog/.env
 nextcloud/.env
 links/.env
+__pycache__/
